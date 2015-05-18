@@ -1,0 +1,78 @@
+package text.adventure.game;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Player {
+	
+		private int MAX_PLAYER_HEALTH = 	100;
+		private int MAX_PLAYER_DEFENCE =	 20;
+		private int MAX_PLAYER_ATTACK =		 50;
+		private int healPotionAmount =		  5;
+		private int healPotionDropChance =	 30;
+		private int healPotionHealAmount =   50;
+		private String playerName;
+		Scanner sc = new Scanner (System.in);
+		Random rand = new Random ();
+		
+		public int  playerDefence, playerAttack, dropChance, heal;
+		
+		public void setMAX_PLAYER_HEALTH (int MAX_PLAYER_HEALTH) {
+			this.MAX_PLAYER_HEALTH = MAX_PLAYER_HEALTH;
+		}
+		
+		public int getMAX_PLAYER_HEALTH () {
+			return MAX_PLAYER_HEALTH;
+		}
+		
+		public void setMAX_PLAYER_DEFENCE(int MAX_PLAYER_DEFENCE){
+		this.MAX_PLAYER_DEFENCE = MAX_PLAYER_DEFENCE;
+		}
+		
+		public int getMAX_PLAYER_DEFENCE (){
+			return MAX_PLAYER_DEFENCE;
+		}
+		
+		public void setMAX_PLAYER_ATTACK (int MAX_PLAYER_ATTACK){
+			this.MAX_PLAYER_ATTACK = MAX_PLAYER_ATTACK;
+			playerAttack =rand.nextInt(this.MAX_PLAYER_ATTACK);
+		}
+		
+		public int getMAX_PLAYER_ATTACK (){
+			return MAX_PLAYER_ATTACK;
+		}
+		
+		public void setPlayerName(String playerName){
+			this.playerName = playerName;
+		}
+		
+		public String getPlayerName (){
+			return playerName ;
+		}
+		public void setHealPotionAmount (int healPotionAmount){
+			this.healPotionAmount = healPotionAmount;
+		}
+		
+		public int getHealPotionAmount () {
+			return healPotionAmount;
+		}
+		
+		public void setHealPotionDropChance (int healPotionDropChance) {
+			dropChance = rand.nextInt(100);
+			if (dropChance <=  healPotionDropChance){
+				healPotionAmount ++;
+			}
+				}
+		
+		public int getHealPotionDropChance () {
+			return healPotionDropChance;
+		}
+		
+		
+		}
+		
+		
+
+
+
+
