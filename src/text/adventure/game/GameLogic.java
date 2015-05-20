@@ -1,11 +1,14 @@
 package text.adventure.game;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 
 public class GameLogic {
 	Scanner sc = new Scanner (System.in);
 	private String playerName;
+   
+   
 	
 	
 	public void beginn () {
@@ -21,6 +24,8 @@ public class GameLogic {
 		Player player = new Player (playerName);
 		System.out.println (player.getPlayerName());
 	}
+	
+	
 	
 	
 	
