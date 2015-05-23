@@ -9,27 +9,27 @@ public class GameLogic {
 	private String playerName;
    
    
-	public GameLogic (String playerName){
-		this.playerName = playerName;
-	}
+
+	
 	
 	public void beginn () {
 		
 	System.out.println("Willkommen zum Text-Adventure VerBlubbDichNicht ");
 	System.out.println("Bevor wir beginnen möchte ich dich bitten deinen Namen einzugeben.");
 	System.out.println("==>");
+	namensEingabe ();
 	
-	}
-	
-	public String getPlayerName (){
-		playerName = sc.nextLine();
-		
-		return playerName;
 	}
 	
 	public void namensEingabe () {
+		playerName = sc.nextLine();
 		Player player = new Player (playerName);
 		System.out.println (player.getPlayerName());
+		derAnfang ();
+	}
+	
+	public void derAnfang (){
+		
 	}
 	
 	
