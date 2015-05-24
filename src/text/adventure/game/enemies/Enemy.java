@@ -2,6 +2,7 @@ package text.adventure.game.enemies;
 
 import java.util.Random;
 
+
 public class Enemy {
 	
 	public final int ENEMY_HEALTH = 100;
@@ -18,14 +19,48 @@ public class Enemy {
 	
 	Random rand = new Random ();
 	
-	int enemyAuswahl = rand.nextInt(100);
+	public void enemyAuswahl () {
+		int enemyAuswahl = rand.nextInt(100);
+		
+		if  (enemyAuswahl <= Drache) {
+			
+			Drache dragon = new Drache ();
+			dragon.drachenAuswahl();
+			
+		}
+		
+		else if (enemyAuswahl <= Kobold) {
+			Kobold kobold = new Kobold ();
+			kobold.koboldAuswahl();
+		}
+		
+		else if (enemyAuswahl <= Magier) {
+			Magier mage = new Magier ();
+			mage.magierAuswahl();
+		}
+		
+		else if (enemyAuswahl <= Skelett) {
+			Skelett skelett = new Skelett ();
+			skelett.skelettAuswahl();
+			
+		}
+		
+		else if (enemyAuswahl <= Zombie) {
+			Zombie zombie = new Zombie ();
+			zombie.zombieAuswahl();
+		}
+		
+	}
 	
 	
-	if  ()
+	
+	
+	
 	
 	
 	// neuer Package => für neue Gegnertypen? Es gibt z.B. Goblins, aber verschieden Versionen...
 	
 		
 	
+
 }
