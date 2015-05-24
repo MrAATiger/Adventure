@@ -1,5 +1,6 @@
 package engine.ConsoleEngine;
 
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.text.html.HTMLEditorKit;
 
 import engine.Engine;
 import engine.InputListener;
@@ -25,34 +28,42 @@ public class ConsoleEngine implements Engine {
 	private JFrame console;
 	private static final int CONSOLE_WIDTH = 600;
 	private static final int CONSOLE_HEIGHT = 700;
-	private JTextArea textArea;
+	private JTextPane textArea;
 	private JTextField input;
 	private JButton enterButton;
 	private static final Font CONSOLE_FONT = new Font("Serif", Font.ITALIC, 16);
 	private InputListener listener;
+	
+	private String text;
+	
 
 	public ConsoleEngine(InputListener listener) {
 		sc = new Scanner(System.in);
 
+		text = "";
+		
 		this.listener = listener;
 
 		// initialisiere Konsole
 		console = new JFrame("Beispiel JFrame");
 		console.setSize(CONSOLE_WIDTH, CONSOLE_HEIGHT);
 		JPanel panel = new JPanel();
-
+		
 		// initialisiere Textfield
 
-		textArea = new JTextArea(30, 50);
+		textArea = new JTextPane ();
+		textArea.setBounds(10, 10, 550, 600);
+		
+		textArea.setContentType("text/html");
+		
 
 		textArea.setEditable(false);
 		// textArea.setFont(CONSOLE_FONT);
 
-		textArea.setLineWrap(true);
-		textArea.setWrapStyleWord(true);
 		// textArea.setSize(200, 200);
 
 		JScrollPane textFieldScrollPanel = new JScrollPane(textArea);
+		textFieldScrollPanel.setPreferredSize(new Dimension( 550, 600 ) );
 
 		// initialisiere Input
 
@@ -60,7 +71,8 @@ public class ConsoleEngine implements Engine {
 		input.addKeyListener(new EnterListener());
 
 		JScrollPane inputTextScrollPanel = new JScrollPane(input);
-
+		
+		
 		// Input Button
 
 		enterButton = new JButton();
@@ -100,13 +112,13 @@ public class ConsoleEngine implements Engine {
 	}
 
 	public void println(String message) {
-		print(message + " \n");
+		print(message + " <br>");
 	}
 
 	@Override
 	public void println(Object obj) {
 
-		print(obj.toString() + " \n");
+		print(obj.toString() + " <br>");
 
 	}
 
@@ -114,19 +126,30 @@ public class ConsoleEngine implements Engine {
 	public void print(Object obj) {
 
 		if (obj != null) {
-			System.out.print(obj.toString());
-			textArea.append(obj.toString());
-			textArea.setCaretPosition(textArea.getDocument().getLength());
+			setText(obj.toString());
 		}
 
 	}
 
 	@Override
 	public void print(String message) {
-		textArea.append(message);
-		textArea.setCaretPosition(textArea.getDocument().getLength());
-		System.out.print(message);
+		setText(message.toString());
 	}
+	
+	
+	private void setText(String message){
+		
+		
+		message = HtmlFormatter.convertJavaToHtml(message);
+		text += message;
+		
+		textArea.setText("<!DOCTYPE html><HTML lang=\"de\"><head></head><BODY>" + text + " </BODY></HTML>");
+		textArea.setCaretPosition(textArea.getDocument().getLength());
+		
+		System.out.println("<!DOCTYPE html lang=\"de\"><HTML><head></head><BODY>" + text + " </BODY></HTML>");
+		
+	}
+	
 
 	@Override
 	public void askForStringInput(String inputMessage) {
@@ -198,7 +221,7 @@ public class ConsoleEngine implements Engine {
 			int z = 1;
 
 			for (Object o : list) {
-				print(z + ".  " + o.toString() + "\n");
+				print(HtmlFormatter.convertJavaToHtml(o.toString()));
 				z++;
 			}
 
@@ -208,6 +231,8 @@ public class ConsoleEngine implements Engine {
 
 	@Override
 	public void clear() {
+		
+		text = "";
 		
 		this.textArea.setText("");
 		
