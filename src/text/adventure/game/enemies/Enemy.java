@@ -18,8 +18,10 @@ public class Enemy {
 	
 	Random rand = new Random ();
 	
+	int enemyAuswahl = rand.nextInt(100);
 	
 	
+	if  ()
 	
 	
 	// neuer Package => für neue Gegnertypen? Es gibt z.B. Goblins, aber verschieden Versionen...
