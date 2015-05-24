@@ -3,7 +3,7 @@ package engine;
 public interface Engine {
 
 	
-	public abstract String getStringInput(String inputMessage);
+	public abstract void askForStringInput(String inputMessage);
 	
 	public abstract void printWindowMessage(String message);
 	
@@ -15,6 +15,8 @@ public interface Engine {
 
 	public abstract void println(String string);
 	
-	
+	public abstract void print(Object obj);
+
+	public abstract void println(Object obj);
 	
 }
