@@ -13,6 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import engine.Engine;
+import engine.InputListener;
 
 public class ConsoleEngine implements Engine {
 
@@ -24,10 +25,12 @@ public class ConsoleEngine implements Engine {
 	private JTextArea input;
 	private JButton enterButton;
 	private static final Font CONSOLE_FONT = new Font("Serif", Font.ITALIC, 16);
-	
+	private InputListener listener;
 
-	public ConsoleEngine() {
+	public ConsoleEngine(InputListener listener) {
 		sc = new Scanner(System.in);
+
+		this.listener = listener;
 
 		// initialisiere Konsole
 		console = new JFrame("Beispiel JFrame");
@@ -35,49 +38,44 @@ public class ConsoleEngine implements Engine {
 		JPanel panel = new JPanel();
 
 		// initialisiere Textfield
-		
-		textArea = new JTextArea(30,50);
-		
+
+		textArea = new JTextArea(30, 50);
+
 		textArea.setEditable(false);
-		//textArea.setFont(CONSOLE_FONT);
-		
+		// textArea.setFont(CONSOLE_FONT);
+
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
-		//textArea.setSize(200, 200);
-		
-		JScrollPane textFieldScrollPanel = new JScrollPane(textArea);   
+		// textArea.setSize(200, 200);
+
+		JScrollPane textFieldScrollPanel = new JScrollPane(textArea);
 
 		// initialisiere Input
-		
-		input = new JTextArea(1,20);
+
+		input = new JTextArea(1, 20);
 		input.setLineWrap(false);
 		input.setWrapStyleWord(false);
-		
 
-		JScrollPane inputTextScrollPanel = new JScrollPane(input); 
-		
-		
+		JScrollPane inputTextScrollPanel = new JScrollPane(input);
+
 		// Input Button
-		
+
 		enterButton = new JButton();
 		enterButton.setText("Enter");
 		enterButton.addActionListener(new ButtonListener());
-		this.enterButton.setEnabled(false);
-		
-		
+		enterButton.setEnabled(false);
+
 		// eingabe Text
-		
+
 		JLabel inputText = new JLabel();
 		inputText.setText("Eingabe");
-		
-		
+
 		// zuweisung
 		panel.add(textFieldScrollPanel);
 		panel.add(inputText);
 		panel.add(inputTextScrollPanel);
 		panel.add(enterButton);
-		
-		
+
 		console.add(panel);
 		console.setVisible(true);
 	}
@@ -105,15 +103,17 @@ public class ConsoleEngine implements Engine {
 	@Override
 	public void println(Object obj) {
 
-		if(obj != null){
-			print(obj.toString() + " \n");			
-		}
+		print(obj.toString() + " \n");
+
 	}
 
 	@Override
 	public void print(Object obj) {
 
-		System.out.print(obj.toString());
+		if (obj != null) {
+			System.out.print(obj.toString());
+			textArea.setText(obj.toString());
+		}
 
 	}
 
@@ -126,16 +126,12 @@ public class ConsoleEngine implements Engine {
 	@Override
 	public void askForStringInput(String inputMessage) {
 
-		
-		this.print(inputMessage);
+		this.println(inputMessage);
 		this.enterButton.setEnabled(true);
-		
+
 	}
 
-	
-	
-	public class ButtonListener extends JFrame implements ActionListener
-	{
+	public class ButtonListener extends JFrame implements ActionListener {
 
 		/**
 		 * 
@@ -144,13 +140,15 @@ public class ConsoleEngine implements Engine {
 
 		@Override
 		public void actionPerformed(ActionEvent event) {
-			if(event.getSource() == enterButton){
+			if (event.getSource() == enterButton) {
+				if (enterButton.isEnabled()) {
+					listener.buttonActionPerformed(enterButton.getText());
+				}
 				enterButton.setEnabled(false);
-	        }
-			
+			}
+
 		}
-		
-		
+
 	}
-	
+
 }
