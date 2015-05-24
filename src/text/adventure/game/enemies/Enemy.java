@@ -1,4 +1,4 @@
-package text.adventure.game;
+package text.adventure.game.enemies;
 
 public class Enemy {
 	
@@ -9,9 +9,6 @@ public class Enemy {
 	
 	
 	// neuer Package => für neue Gegnertypen? Es gibt z.B. Goblins, aber verschieden Versionen...
-	private String [] enemies = { "Skelett"};
-				
 	
-
-	
+			
 }

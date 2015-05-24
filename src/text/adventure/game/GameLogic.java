@@ -1,13 +1,13 @@
 package text.adventure.game;
 
 import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
 
 public class GameLogic {
 	Scanner sc = new Scanner (System.in);
 	private String playerName;
-   
    
 
 	
