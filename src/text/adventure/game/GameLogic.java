@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import ConsoleEngine.ConsoleEngine;
 import engine.Engine;
 import engine.InputListener;
+import engine.ConsoleEngine.ConsoleEngine;
+import engine.ConsoleEngine.TextPatter;
 
 public class GameLogic implements InputListener {
 	private Player player;
@@ -79,36 +80,35 @@ public class GameLogic implements InputListener {
 
 		switch (action) {
 		case KEYWORD_DEEPER:
-			engine.println("Du wagst dich tiefer in den Dungeon! (epische aber leicht gruselige Musik)");
+			engine.println(TextPatter.GoDeeper.getRandomText());
 			sleeping(1000);
+			engine.println("");
 			this.showActions();
 			break;
 
 		case KEYWORD_INVENTORY:
-			engine.println("Na mal sehen was hast du in deiner Hosentasche ....");
+			engine.println(TextPatter.Inventory.getRandomText());
 			sleeping(1000);
+			engine.println("");
 			this.showActions();
 			break;
 
 		case KEYWORD_LEAVE:
-			engine.println("Plötzlich öffnet sich über dir eine Falltür und eine schwarze Masse fließt herunter (SFX: flatsch)."
-					+ "\n Vor lauter schreck gackernd fällst du in das Daunen Kissen neben dir... das du bis jetzt völlig übersehen hast."
-					+ "\nVor lauter scham rennst du fast hüpfend und mit dem Armen wedelnd aus den Dungeon ..." + "\n\nENDE ");
+			engine.println(TextPatter.Leave.getRandomText());
 			break;
 
 		case KEYWORD_HELP:
-			engine.println("Du guckst blöd in dein Abenteuer Handbuch für Dummies.");
-			engine.println("Dabei findest du folgendes raus:");
+			engine.println(TextPatter.Help.getRandomText());
 			engine.print(KEY_LIST);
-
 			sleeping(1000);
+			engine.println("");
 			this.showActions();
-
 			break;
 
 		default:
-			engine.println("Öhm was auch immer du machen wolltest.....du hast es gerade vergessen!");
+			engine.println(TextPatter.WrongCmd.getRandomText());
 			sleeping(1000);
+			engine.println("");
 			this.showActions();
 			break;
 		}
