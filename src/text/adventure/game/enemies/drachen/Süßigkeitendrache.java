@@ -1,5 +1,7 @@
 package text.adventure.game.enemies.drachen;
 
-public class Süßigkeitendrache {
+import text.adventure.game.enemies.Drache;
+
+public class Süßigkeitendrache extends Drache {
 
 }
