@@ -6,13 +6,11 @@ public class Drache extends Enemy {
 	
 	public final int AVOID_CHANCE = 5;
 	
-	private String Eisdrache;
-	private String Feuerdrache;
-	private String Zombiedrache;
-	private String Blitzdrache;
-	private String Eisendrache;
-	private String Süßigkeitendrache;
-	
-	
-	
+	public final int  Eisdrache = 40;
+	public final int  Feuerdrache = 80;
+	public final int  Zombiedrache = 18;
+	public final int Blitzdrache = 13;
+	public final int  Eisendrache = 2;
+	public final int Süßigkeitendrache = 1;
+		
 }
