@@ -1,39 +1,29 @@
 package text.adventure.game;
 
 import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
+import ConsoleEngine.ConsoleEngine;
+import engine.Engine;
 
 public class GameLogic {
-	Scanner sc = new Scanner (System.in);
-	private String playerName;
-   
-   
+	private Player player;
+	private Engine engine;
+	
+	
+	public void beginn() {
 
-	
-	
-	public void beginn () {
+		engine = new ConsoleEngine();
 		
-	System.out.println("Willkommen zum Text-Adventure VerBlubbDichNicht ");
-	System.out.println("Bevor wir beginnen möchte ich dich bitten deinen Namen einzugeben.");
-	System.out.println("==>");
-	namensEingabe ();
-	
+
+		engine.println("Willkommen zum Text-Adventure VerBlubbDichNicht ");
+		player = new Player(engine.getStringInput("Bevor wir beginnen möchte ich dich bitten deinen Namen einzugeben."));
+
 	}
-	
-	public void namensEingabe () {
-		playerName = sc.nextLine();
-		Player player = new Player (playerName);
-		System.out.println (player.getPlayerName());
-		derAnfang ();
+
+	public void derAnfang() {
+
 	}
-	
-	public void derAnfang (){
-		
-	}
-	
-	
-	
-	
-	
+
 }
