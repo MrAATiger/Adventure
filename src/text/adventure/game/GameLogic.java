@@ -95,6 +95,17 @@ public class GameLogic implements InputListener {
 
 		case KEYWORD_LEAVE:
 			engine.println(TextPatter.Leave.getRandomText());
+			engine.println("\n\nProgramm beendet sich in \n\n\t5");
+			sleeping(1000);
+			engine.println("\t4");
+			sleeping(1000);
+			engine.println("\t3");
+			sleeping(1000);
+			engine.println("\t2");
+			sleeping(1000);
+			engine.println("\t1");
+			sleeping(1000);
+			System.exit(0);
 			break;
 
 		case KEYWORD_HELP:
