@@ -1,4 +1,4 @@
-package text.adventure.game;
+package text.adventure.game.waffen;
 
 public class Waffen {
 
@@ -7,8 +7,7 @@ public class Waffen {
 	private int durchschlagskraft;
 	private int verzauberung;
 
-	public Waffen(int stärke, int gewicht, int durchschlagskraft,
-			int verzauberung) {
+	public Waffen () {
 
 		this.stärke = stärke;
 		this.gewicht = gewicht;

@@ -1,5 +1,7 @@
 package text.adventure.game.enemies;
 
+import java.util.Random;
+
 public class Enemy {
 	
 	public final int ENEMY_HEALTH = 50;
@@ -8,7 +10,10 @@ public class Enemy {
 	public final int DROP_CHANCE = 20;
 	
 	
+	Random rand = new Random ();
+	
 	// neuer Package => für neue Gegnertypen? Es gibt z.B. Goblins, aber verschieden Versionen...
 	
-			
+		
+	
 }
