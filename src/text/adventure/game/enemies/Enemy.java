@@ -5,6 +5,8 @@ import java.util.Random;
 
 public class Enemy {
 	
+	
+	
 	public final int ENEMY_HEALTH = 100;
 	public final int ENEMY_ATTACK = 20;
 	public final int ENEMY_DEFENCE = 20;
@@ -16,8 +18,12 @@ public class Enemy {
 	public final int Skelett = 40;
 	public final int Zombie = 70;
 	
-	
 	Random rand = new Random ();
+	
+	
+public Enemy () {
+		
+	}
 	
 	public void enemyAuswahl () {
 		int enemyAuswahl = rand.nextInt(100);
