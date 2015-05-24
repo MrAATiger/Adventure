@@ -20,6 +20,8 @@ public class GameLogic {
 		engine.println("Willkommen zum Text-Adventure VerBlubbDichNicht ");
 		player = new Player(engine.getStringInput("Bevor wir beginnen möchte ich dich bitten deinen Namen einzugeben."));
 
+		
+		
 	}
 
 	public void derAnfang() {
