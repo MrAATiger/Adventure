@@ -19,6 +19,7 @@ public class GameLogic implements InputListener {
 	public static final String KEYWORD_INVENTORY = "inventory";
 	public static final String KEYWORD_HELP = "help";
 	public static final String KEYWORD_LEAVE = "leave";
+	public static final String TITLE = "VerBlubbDichNicht";
 
 	public static List<String> KEY_LIST = Arrays.asList(KEYWORD_DEEPER, KEYWORD_INVENTORY, KEYWORD_HELP, KEYWORD_LEAVE);
 
@@ -28,7 +29,7 @@ public class GameLogic implements InputListener {
 	public void begin() {
 
 		// initialisierung
-		engine = new ConsoleEngine(this);
+		engine = new ConsoleEngine(this, TITLE);
 		actions = new ArrayList<String>();
 
 		// addd Standard actions
@@ -37,17 +38,16 @@ public class GameLogic implements InputListener {
 		actions.add("Dungeon verlassen \t(" + KEYWORD_LEAVE + ")");
 
 		// Ausgabe der WilkommmensNachricht
-		engine.println("Willkommen zum Text-Adventure VerBlubbDichNicht ");
-		engine.askForStringInput("Bevor wir beginnen möchte ich dich bitten deinen Namen einzugeben.");
+		engine.printlnWelcomeMessage("Willkommen zum Text-Adventure \n" + TITLE + "\n\n");
+		engine.askForStringInput("Bevor wir Beginnen, nenne mir deinen heroische Namen... für die Wall of Shame und so.");
 		this.sleeping();
 
 		player = new Player(action);
 
-		engine.println("");
-		engine.println("Willkommen Player: " + player);
-		engine.println("Steuerung: Gib ein bestimmtes Schüsselwort in das Feld unter dem Textfeld ein, um eine bestimmte Aktion zu tätigen.");
-		engine.println("Du kannst jederzeit help eingeben um alle möglichen Befehle zu sehen.");
-		engine.println("");
+		engine.printStrong("\nWillkommen Player:");
+		engine.printEpic(" " + player + "\n");
+		engine.printStrong("Steuerung:\n");
+		engine.print("Gib ein bestimmtes <strong>Schüsselwort</strong> in das Feld unter dem Textfeld ein, um eine bestimmte Aktion zu tätigen.\n Du kannst jederzeit <strong>help</strong> eingeben um alle möglichen Befehle zu sehen.\n\n");
 
 		
 		

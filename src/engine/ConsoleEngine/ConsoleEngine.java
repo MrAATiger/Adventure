@@ -37,7 +37,7 @@ public class ConsoleEngine implements Engine {
 	private String text;
 	
 
-	public ConsoleEngine(InputListener listener) {
+	public ConsoleEngine(InputListener listener, String name) {
 		sc = new Scanner(System.in);
 
 		text = "";
@@ -45,7 +45,7 @@ public class ConsoleEngine implements Engine {
 		this.listener = listener;
 
 		// initialisiere Konsole
-		console = new JFrame("Beispiel JFrame");
+		console = new JFrame(name);
 		console.setSize(CONSOLE_WIDTH, CONSOLE_HEIGHT);
 		JPanel panel = new JPanel();
 		
@@ -236,6 +236,27 @@ public class ConsoleEngine implements Engine {
 		
 		this.textArea.setText("");
 		
+	}
+
+	@Override
+	public void printlnWelcomeMessage(String message) {
+		
+		message = "<div style=\"width:100%;font-size:20px; text-align: center;\">" + message + "</div>"; 
+		this.print(message);
+	}
+
+	@Override
+	public void printStrong(String message) {
+		
+		message = "<strong>"+ message +"</strong>";
+		this.print(message);
+	}
+
+	@Override
+	public void printEpic(String message) {
+		
+		message = "<div style=\"font-size:50px;width:100%; text-align: center;\"><strong>"+ message +"</div>";
+		this.print(message);
 	}
 
 }

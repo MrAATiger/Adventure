@@ -24,5 +24,11 @@ public interface Engine {
 	public abstract void println(Object obj);
 	
 	public abstract void clear();
+
+	public abstract void printlnWelcomeMessage(String message);
+
+	public abstract void printStrong(String message);
+
+	public abstract void printEpic(String message);
 	
 }
