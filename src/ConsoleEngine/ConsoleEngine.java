@@ -3,6 +3,9 @@ package ConsoleEngine;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.swing.JButton;
@@ -11,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import engine.Engine;
 import engine.InputListener;
@@ -22,7 +26,7 @@ public class ConsoleEngine implements Engine {
 	private static final int CONSOLE_WIDTH = 600;
 	private static final int CONSOLE_HEIGHT = 700;
 	private JTextArea textArea;
-	private JTextArea input;
+	private JTextField input;
 	private JButton enterButton;
 	private static final Font CONSOLE_FONT = new Font("Serif", Font.ITALIC, 16);
 	private InputListener listener;
@@ -52,9 +56,8 @@ public class ConsoleEngine implements Engine {
 
 		// initialisiere Input
 
-		input = new JTextArea(1, 20);
-		input.setLineWrap(false);
-		input.setWrapStyleWord(false);
+		input = new JTextField(20);
+		input.addKeyListener(new EnterListener());
 
 		JScrollPane inputTextScrollPanel = new JScrollPane(input);
 
@@ -112,14 +115,16 @@ public class ConsoleEngine implements Engine {
 
 		if (obj != null) {
 			System.out.print(obj.toString());
-			textArea.setText(obj.toString());
+			textArea.append(obj.toString());
+			textArea.setCaretPosition(textArea.getDocument().getLength());
 		}
 
 	}
 
 	@Override
 	public void print(String message) {
-		textArea.setText(textArea.getText() + message);
+		textArea.append(message);
+		textArea.setCaretPosition(textArea.getDocument().getLength());
 		System.out.print(message);
 	}
 
@@ -136,19 +141,76 @@ public class ConsoleEngine implements Engine {
 		/**
 		 * 
 		 */
-		private static final long serialVersionUID = 1L;
+		private static final long serialVersionUID = 4808494044559399165L;
 
 		@Override
 		public void actionPerformed(ActionEvent event) {
 			if (event.getSource() == enterButton) {
-				if (enterButton.isEnabled()) {
-					listener.buttonActionPerformed(enterButton.getText());
-				}
-				enterButton.setEnabled(false);
+				performInputAction();
 			}
 
 		}
 
+	}
+
+	public class EnterListener extends JFrame implements KeyListener {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 9196668079757453961L;
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+				performInputAction();
+			}
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+
+			}
+		}
+
+		@Override
+		public void keyTyped(KeyEvent e) {
+			if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+
+			}
+		}
+	}
+
+	private void performInputAction() {
+		if (enterButton.isEnabled()) {
+			listener.buttonActionPerformed(input.getText());
+			input.setText("");
+		}
+		enterButton.setEnabled(false);
+	}
+
+	@Override
+	public void print(List<String> list) {
+
+		if (list != null) {
+
+			int z = 1;
+
+			for (Object o : list) {
+				print(z + ".  " + o.toString() + "\n");
+				z++;
+			}
+
+		}
+
+	}
+
+	@Override
+	public void clear() {
+		
+		this.textArea.setText("");
+		
 	}
 
 }
