@@ -7,6 +7,7 @@ import java.util.List;
 
 import engine.Engine;
 import engine.InputListener;
+import engine.ConsoleEngine.ASCIIGraphics;
 import engine.ConsoleEngine.ConsoleEngine;
 import engine.ConsoleEngine.IOSystem;
 import engine.ConsoleEngine.TextPatter;
@@ -45,6 +46,7 @@ public class GameLogic implements InputListener {
 		// Ausgabe der WilkommmensNachricht
 		engine.printlnWelcomeMessage("Willkommen zum Text-Adventure \n" + TITLE + "\n\n");
 		engine.askForStringInput("Bevor wir Beginnen, nenne mir deinen heroische Namen... für die Wall of Shame und so.");
+	
 		this.sleeping();
 
 		player = new Player(action);
@@ -58,6 +60,8 @@ public class GameLogic implements InputListener {
 		
 		engine.askForStringInput("\nWas willst du tun?\n");
 		engine.print(actions);
+		
+		
 		this.sleeping();
 		engine.clear();
 		
@@ -80,7 +84,11 @@ public class GameLogic implements InputListener {
 		switch (action) {
 		case KEYWORD_DEEPER:
 			engine.println(TextPatter.GoDeeper.getRandomText());
-			sleeping(1000);
+			
+			engine.print("OMG ein rießiger Drache erscheint im kleinen Dungeon! SFX: Drachengebrüll \n");
+			engine.printASCIIGraphics(ASCIIGraphics.Dragon);
+			
+			sleeping(3000);
 			this.showActions();
 			break;
 

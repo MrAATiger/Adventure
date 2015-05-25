@@ -2,6 +2,8 @@ package engine;
 
 import java.util.List;
 
+import engine.ConsoleEngine.ASCIIGraphics;
+
 public interface Engine {
 
 	
@@ -30,5 +32,7 @@ public interface Engine {
 	public abstract void printStrong(String message);
 
 	public abstract void printEpic(String message);
+
+	public abstract void printASCIIGraphics(ASCIIGraphics graphics);
 	
 }

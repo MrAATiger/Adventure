@@ -24,23 +24,18 @@ import engine.InputListener;
 
 public class ConsoleEngine implements Engine {
 
-	private Scanner sc;
 	private JFrame console;
 	private static final int CONSOLE_WIDTH = 600;
 	private static final int CONSOLE_HEIGHT = 700;
 	private JTextPane textArea;
 	private JTextField input;
 	private JButton enterButton;
-	private static final Font CONSOLE_FONT = new Font("Serif", Font.ITALIC, 16);
 	private InputListener listener;
 	
 	private String text;
-	private String wallOfShame;
 
 	public ConsoleEngine(InputListener listener, String name) {
-		sc = new Scanner(System.in);
 
-		wallOfShame = IOSystem.readSaveFile();
 		
 		text = "";
 		
@@ -261,6 +256,12 @@ public class ConsoleEngine implements Engine {
 		
 		message = "<div style=\"font-size:50px;width:100%; text-align: center;\"><strong>"+ message +"</div>";
 		this.print(message);
+	}
+
+	@Override
+	public void printASCIIGraphics(ASCIIGraphics graphics) {
+		this.print(HtmlFormatter.convertASCIIToHtml(graphics.toString()));
+		
 	}
 
 }

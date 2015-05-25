@@ -35,6 +35,15 @@ public class HtmlFormatter {
 		
 		return text;
 	}
-	
+
+	public static String convertASCIIToHtml(String text){
+		
+		String html = text;
+		
+		
+		html = "<pre style=\"font-size:5px; font-style:normal; line-height:6px; font-family: \"Courier New\", Courier, mono;\">" + html + "</pre>";
+		
+		return html;
+	}
 	
 }
