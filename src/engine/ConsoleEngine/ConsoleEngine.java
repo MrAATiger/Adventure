@@ -23,9 +23,13 @@ import engine.InputListener;
 
 public class ConsoleEngine implements Engine {
 
-	private JFrame console;
+	
 	private static final int CONSOLE_WIDTH = 600;
 	private static final int CONSOLE_HEIGHT = 700;
+	private static final int INVENTORY_WIDTH = 200;
+	private static final int INVENTORY_HEIGHT = 200;
+
+	private JFrame console;
 	private JTextPane textArea;
 	private JTextField input;
 	private JButton enterButton;
@@ -42,6 +46,8 @@ public class ConsoleEngine implements Engine {
 		// initialisiere Konsole
 		console = new JFrame(name);
 		console.setSize(CONSOLE_WIDTH, CONSOLE_HEIGHT);
+		console.setLocationRelativeTo(null);
+		console.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JPanel panel = new JPanel();
 
 		// initialisiere Textfield
@@ -86,6 +92,15 @@ public class ConsoleEngine implements Engine {
 
 		console.add(panel);
 		console.setVisible(true);
+		
+		
+
+		/*JFrame map = new JFrame();
+		map.setSize(INVENTORY_WIDTH, INVENTORY_HEIGHT);
+		map.setLocationRelativeTo(console);
+		map.setLocation(map.getLocation().x-450, map.getLocation().y-250);
+		map.setVisible(true);
+		*/
 	}
 
 	@Override
