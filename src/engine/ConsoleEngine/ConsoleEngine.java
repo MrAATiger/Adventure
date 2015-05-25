@@ -218,12 +218,14 @@ public class ConsoleEngine implements Engine {
 	@Override
 	public void print(List<String> list) {
 
+		System.out.println("\n liste " + list.toString() +" \n");
+		
 		if (list != null) {
 
 			int z = 1;
 
 			for (Object o : list) {
-				print(HtmlFormatter.convertJavaToHtml(o.toString()));
+				print(HtmlFormatter.convertJavaToHtml(o.toString()) + "\n");
 				z++;
 			}
 

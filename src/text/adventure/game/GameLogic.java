@@ -2,6 +2,7 @@ package text.adventure.game;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import engine.Engine;
@@ -23,13 +24,15 @@ public class GameLogic implements InputListener {
 	public static final String KEYWORD_WALL_OF_SHAME = "wall of shame";
 	public static final String TITLE = "VerBlubbDichNicht";
 
-	public static List<String> KEY_LIST = Arrays.asList(KEYWORD_DEEPER, KEYWORD_INVENTORY, KEYWORD_HELP, KEYWORD_LEAVE, KEYWORD_WALL_OF_SHAME);
+	public static List<String> KEY_LIST = new ArrayList<String>(Arrays.asList("<strong>" + KEYWORD_DEEPER + " </strong>\ttiefer in den Dungeon","<strong>" +  KEYWORD_INVENTORY + " </strong>\tInventar anzeigen", "<strong>" +  KEYWORD_HELP + " </strong>\tHilfe anzeigen", "<strong>" +  KEYWORD_LEAVE + " </strong>\tSpiel verlassen", "<strong>" +  KEYWORD_WALL_OF_SHAME + " </strong>\tWall of Shame anzeigen!"));
 
 	// in der Variabel werde die Textnachrichten gespeichert
 	private String action;
 
 	public void begin() {
-
+		
+		Collections.sort(KEY_LIST);
+		
 		// initialisierung
 		engine = new ConsoleEngine(this, TITLE);
 		actions = new ArrayList<String>();
@@ -53,25 +56,18 @@ public class GameLogic implements InputListener {
 		engine.print("Gib ein bestimmtes <strong>Schüsselwort</strong> in das Feld unter dem Textfeld ein, um eine bestimmte Aktion zu tätigen.\n Du kannst jederzeit <strong>help</strong> eingeben um alle möglichen Befehle zu sehen.\n\n");
 
 		
+		engine.askForStringInput("\nWas willst du tun?\n");
+		engine.print(actions);
+		this.sleeping();
+		engine.clear();
 		
-		this.showActions();
+		this.performAction();
 	}
 
 	private void showActions() {
 
-		/**
-		 * Mögliche Actionen sind:
-		 * 
-		 * Tiefer in den Dungeon gehen Inventar anschauen Dungeon verlassen
-		 * 
-		 */
-		engine.askForStringInput("Was willst du tun?\n");
-
-
-		engine.print(actions);
-
+		engine.askForStringInput("\nWas willst du tun?\n");
 		this.sleeping();
-		
 		engine.clear();
 		
 		this.performAction();
@@ -85,14 +81,12 @@ public class GameLogic implements InputListener {
 		case KEYWORD_DEEPER:
 			engine.println(TextPatter.GoDeeper.getRandomText());
 			sleeping(1000);
-			engine.println("");
 			this.showActions();
 			break;
 
 		case KEYWORD_INVENTORY:
 			engine.println(TextPatter.Inventory.getRandomText());
 			sleeping(1000);
-			engine.println("");
 			this.showActions();
 			break;
 
@@ -115,18 +109,18 @@ public class GameLogic implements InputListener {
 			engine.println(TextPatter.Help.getRandomText());
 			engine.print(KEY_LIST);
 			sleeping(1000);
-			engine.println("");
 			this.showActions();
 			break;
 
 		case KEYWORD_WALL_OF_SHAME:
-			engine.println(IOSystem.readSaveFile());
+			engine.println(TextPatter.WALL_OF_SHAME.getRandomText());
+			engine.print(IOSystem.readSaveFile());
+			this.showActions();
 			break;
 			
 		default:
 			engine.println(TextPatter.WrongCmd.getRandomText());
 			sleeping(1000);
-			engine.println("");
 			this.showActions();
 			break;
 		}
