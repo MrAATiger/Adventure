@@ -35,11 +35,13 @@ public class ConsoleEngine implements Engine {
 	private InputListener listener;
 	
 	private String text;
-	
+	private String wallOfShame;
 
 	public ConsoleEngine(InputListener listener, String name) {
 		sc = new Scanner(System.in);
 
+		wallOfShame = IOSystem.readSaveFile();
+		
 		text = "";
 		
 		this.listener = listener;

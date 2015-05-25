@@ -7,6 +7,7 @@ import java.util.List;
 import engine.Engine;
 import engine.InputListener;
 import engine.ConsoleEngine.ConsoleEngine;
+import engine.ConsoleEngine.IOSystem;
 import engine.ConsoleEngine.TextPatter;
 
 public class GameLogic implements InputListener {
@@ -19,9 +20,10 @@ public class GameLogic implements InputListener {
 	public static final String KEYWORD_INVENTORY = "inventory";
 	public static final String KEYWORD_HELP = "help";
 	public static final String KEYWORD_LEAVE = "leave";
+	public static final String KEYWORD_WALL_OF_SHAME = "wall of shame";
 	public static final String TITLE = "VerBlubbDichNicht";
 
-	public static List<String> KEY_LIST = Arrays.asList(KEYWORD_DEEPER, KEYWORD_INVENTORY, KEYWORD_HELP, KEYWORD_LEAVE);
+	public static List<String> KEY_LIST = Arrays.asList(KEYWORD_DEEPER, KEYWORD_INVENTORY, KEYWORD_HELP, KEYWORD_LEAVE, KEYWORD_WALL_OF_SHAME);
 
 	// in der Variabel werde die Textnachrichten gespeichert
 	private String action;
@@ -43,6 +45,7 @@ public class GameLogic implements InputListener {
 		this.sleeping();
 
 		player = new Player(action);
+		IOSystem.appendSaveFile(action);
 
 		engine.printStrong("\nWillkommen Player:");
 		engine.printEpic(" " + player + "\n");
@@ -116,6 +119,10 @@ public class GameLogic implements InputListener {
 			this.showActions();
 			break;
 
+		case KEYWORD_WALL_OF_SHAME:
+			engine.println(IOSystem.readSaveFile());
+			break;
+			
 		default:
 			engine.println(TextPatter.WrongCmd.getRandomText());
 			sleeping(1000);
