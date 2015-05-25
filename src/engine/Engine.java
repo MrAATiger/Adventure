@@ -3,6 +3,7 @@ package engine;
 import java.util.List;
 
 import engine.ConsoleEngine.ASCIIGraphics;
+import text.adventure.game.Player;
 
 public interface Engine {
 
@@ -34,5 +35,7 @@ public interface Engine {
 	public abstract void printEpic(String message);
 
 	public abstract void printASCIIGraphics(ASCIIGraphics graphics);
+
+	public abstract void printPlayerList(List<Player> playerlist);
 	
 }

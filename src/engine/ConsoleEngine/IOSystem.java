@@ -7,14 +7,18 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import text.adventure.game.Player;
 
 public class IOSystem {
 
 	private static File saveFile = new File("wall_of_shame.txt");
 
-	public static String readSaveFile() {
+	public static List<Player> readSaveFile() {
 
-		String text = "";
+		List<Player> players = new ArrayList<Player>();
 		FileReader fr;
 		try {
 			fr = new FileReader(saveFile);
@@ -27,7 +31,7 @@ public class IOSystem {
 				zeile = br.readLine();
 
 				if (zeile != null) {
-					text += zeile + "\n";
+					players.add(convertLineToPlayer(zeile));
 				}
 			}
 
@@ -39,7 +43,7 @@ public class IOSystem {
 			e.printStackTrace();
 		}
 
-		return text;
+		return players;
 	}
 
 	public static void writeSaveFile(String text) {
@@ -58,14 +62,50 @@ public class IOSystem {
 		}
 	}
 
-	public static void appendSaveFile(String action) {
-		
-		String text = readSaveFile();
-		
-		text += action;
-		
+	public static void appendPlayerToSaveFile(Player player) {
+
+		String text = "";
+
+		for (Player v : readSaveFile()) {
+			text += convertPlayerToLine(v) + "\n";
+		}
+
+		text += convertPlayerToLine(player);
+
 		writeSaveFile(text);
+
+	}
+
+	public static String convertPlayerToLine(Player player) {
+
+		String line = "name=[" + HtmlFormatter.decodeHtmlUmlaute(player.getPlayerName()) + "] score=[" + player.getScore() + "]";
+
+		return line;
+	}
+
+	public static Player convertLineToPlayer(String line) {
+
+		int index = line.indexOf("]");
+
+		String name = line.substring(line.indexOf("[") + 1, index);
 		
+		// player name
+		Player player = new Player(name);
+		name = HtmlFormatter.encodeHtmlUmlaute(name);
+
+		index++;
+		// System.out.println("index" + index + " max" + line.length());
+		// System.out.println("[" + line.indexOf("[", index) + " ]" +
+		// line.indexOf("]", index));
+
+		// player score
+		String score = line.substring(line.indexOf("[", index) + 1, line.indexOf("]", index));
+
+		player.addScore(Integer.parseInt(score));
+
+		// System.out.println(player.getPlayerName() + " " + player.getScore());
+
+		return player;
 	}
 
 }

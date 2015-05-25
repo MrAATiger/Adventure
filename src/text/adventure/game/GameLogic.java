@@ -25,7 +25,7 @@ public class GameLogic implements InputListener {
 	public static final String KEYWORD_WALL_OF_SHAME = "wall of shame";
 	public static final String TITLE = "VerBlubbDichNicht";
 
-	public static List<String> KEY_LIST = new ArrayList<String>(Arrays.asList("<strong>" + KEYWORD_DEEPER + " </strong>\ttiefer in den Dungeon","<strong>" +  KEYWORD_INVENTORY + " </strong>\tInventar anzeigen", "<strong>" +  KEYWORD_HELP + " </strong>\tHilfe anzeigen", "<strong>" +  KEYWORD_LEAVE + " </strong>\tSpiel verlassen", "<strong>" +  KEYWORD_WALL_OF_SHAME + " </strong>\tWall of Shame anzeigen!"));
+	public static List<String> KEY_LIST = new ArrayList<String>(Arrays.asList("<strong>" + KEYWORD_DEEPER + " </strong> \n\t\ttiefer in den Dungeon","<strong>" +  KEYWORD_INVENTORY + " </strong>\n\t\tInventar anzeigen", "<strong>" +  KEYWORD_HELP + " </strong>\n\t\tHilfe anzeigen", "<strong>" +  KEYWORD_LEAVE + " </strong>\n\t\tSpiel verlassen", "<strong>" +  KEYWORD_WALL_OF_SHAME + " </strong>\n\t\tWall of Shame anzeigen!"));
 
 	// in der Variabel werde die Textnachrichten gespeichert
 	private String action;
@@ -39,9 +39,9 @@ public class GameLogic implements InputListener {
 		actions = new ArrayList<String>();
 
 		// addd Standard actions
-		actions.add("Tiefer in den Dungeon \t(" + KEYWORD_DEEPER + ")");
-		actions.add("Inventar aufrufen \t(" + KEYWORD_INVENTORY + ")");
-		actions.add("Dungeon verlassen \t(" + KEYWORD_LEAVE + ")");
+		actions.add("Tiefer in den Dungeon \n\t\t(" + KEYWORD_DEEPER + ")");
+		actions.add("Inventar aufrufen  \n\t\t(" + KEYWORD_INVENTORY + ")");
+		actions.add("Dungeon verlassen  \n\t\t(" + KEYWORD_LEAVE + ")");
 
 		// Ausgabe der WilkommmensNachricht
 		engine.printlnWelcomeMessage("Willkommen zum Text-Adventure \n" + TITLE + "\n\n");
@@ -50,7 +50,6 @@ public class GameLogic implements InputListener {
 		this.sleeping();
 
 		player = new Player(action);
-		IOSystem.appendSaveFile(action);
 
 		engine.printStrong("\nWillkommen Player:");
 		engine.printEpic(" " + player + "\n");
@@ -100,6 +99,7 @@ public class GameLogic implements InputListener {
 
 		case KEYWORD_LEAVE:
 			engine.println(TextPatter.Leave.getRandomText());
+			IOSystem.appendPlayerToSaveFile(player);
 			engine.println("\n\nProgramm beendet sich in \n\n\t5");
 			sleeping(1000);
 			engine.println("\t4");
@@ -122,7 +122,7 @@ public class GameLogic implements InputListener {
 
 		case KEYWORD_WALL_OF_SHAME:
 			engine.println(TextPatter.WALL_OF_SHAME.getRandomText());
-			engine.print(IOSystem.readSaveFile());
+			engine.printPlayerList(IOSystem.readSaveFile());
 			this.showActions();
 			break;
 			

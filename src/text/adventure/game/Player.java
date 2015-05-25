@@ -9,11 +9,13 @@ public class Player {
 	private static final int MAX_PLAYER_ATTACK = 50;
 
 	private String playerName;
+	private int score;
 
 	Random rand = new Random();
 
 	public Player(String playerName) {
 		this.playerName = playerName;
+		this.score = 0;
 	}
 
 	public int playerDefence, playerAttack, dropChance, heal;
@@ -26,6 +28,14 @@ public class Player {
 		return maxPlayerHealth;
 	}
 
+	public void addScore(int score){
+		this.score += score;
+	}
+	
+	public int getScore(){
+		return score;
+	}
+	
 	public String getPlayerName() {
 		return playerName;
 	}
