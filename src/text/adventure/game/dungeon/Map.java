@@ -62,21 +62,21 @@ public class Map {
 		 *
 		 * Von der Difficult hängt es ab welche Art von Räumen wie wahrscheinlich drankommen
 		 * 
-		 * Easy mehr idle Räume
-		 * 		mehr Loot
-		 * 		weniger Monster Räume
-		 * 		ganz wenige Fallen Räume
+		 * Easy mehr idle Räume				| 30%
+		 * 		mehr Loot					| 30%
+		 * 		weniger Monster Räume		| 40%
+		 * 		ganz wenige Fallen Räume	| 10%
 		 * 
-		 *  Normal normal idle Räume
-		 * 		normal Loot
-		 * 		normal Monster Räume
-		 * 		wenige Fallen Räume
+		 *  Normal normal idle Räume		| 20%
+		 * 		normal Loot					| 20%
+		 * 		normal Monster Räume		| 50%
+		 * 		wenige Fallen Räume			| 10%
 		 * 
 		 * 
-		 *  Hard wenige idle Räume
-		 * 		wenige Loot
-		 * 		viele Monster Räume
-		 * 		viele Fallen Räume
+		 *  Hard wenige idle Räume			| 10%
+		 * 		wenige Loot					| 10%
+		 * 		viele Monster Räume			| 50%
+		 * 		viele Fallen Räume			| 30%
 		 * 
 		 * 
 		 */
