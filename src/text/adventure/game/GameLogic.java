@@ -122,7 +122,7 @@ public class GameLogic implements InputListener {
 
 		case KEYWORD_WALL_OF_SHAME:
 			engine.println(TextPatter.WALL_OF_SHAME.getRandomText());
-			engine.printPlayerList(IOSystem.readSaveFile());
+			engine.printPlayerList(IOSystem.readWallOfShame());
 			this.showActions();
 			break;
 			

@@ -14,9 +14,42 @@ import text.adventure.game.Player;
 
 public class IOSystem {
 
-	private static File saveFile = new File("wall_of_shame.txt");
+	private static final String PATH_SAVEFILES = "src/resources/text/de/";
+	private static final String PATH_TEXTPATTERN = "src/resources/savefiles/";
 
-	public static List<Player> readSaveFile() {
+	private static File saveFile = new File(PATH_SAVEFILES + "wall_of_shame.txt");
+
+	public static List<String> readTextPattern(String fileName) {
+		List<String> pattern = new ArrayList<String>();
+		FileReader fr;
+		try {
+			fr = new FileReader(PATH_TEXTPATTERN + fileName);
+
+			BufferedReader br = new BufferedReader(fr);
+
+			String zeile = "";
+			while (zeile != null) {
+
+				zeile = br.readLine();
+
+				if (zeile != null) {
+					pattern.add(zeile);
+				}
+			}
+
+			br.close();
+		} catch (FileNotFoundException e) {
+			writeSaveFile("");
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return pattern;
+
+	}
+
+	public static List<Player> readWallOfShame() {
 
 		List<Player> players = new ArrayList<Player>();
 		FileReader fr;
@@ -66,7 +99,7 @@ public class IOSystem {
 
 		String text = "";
 
-		for (Player v : readSaveFile()) {
+		for (Player v : readWallOfShame()) {
 			text += convertPlayerToLine(v) + "\n";
 		}
 
@@ -88,7 +121,7 @@ public class IOSystem {
 		int index = line.indexOf("]");
 
 		String name = line.substring(line.indexOf("[") + 1, index);
-		
+
 		// player name
 		Player player = new Player(name);
 		name = HtmlFormatter.encodeHtmlUmlaute(name);

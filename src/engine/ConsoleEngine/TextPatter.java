@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import engine.ConsoleEngine.IOSystem;
 
 public enum TextPatter {
 
@@ -14,8 +15,10 @@ public enum TextPatter {
 					+ "\nVor lauter scham rennst du fast hüpfend und mit dem Armen wedelnd aus den Dungeon ..." + "\n\nENDE ", "Du hörst ein Click ... und du warst tot und nie wieder gesehen.", "bye bye", "Damn Glitch ... du fällst ins Bodenlose!")),
 	Help(Arrays.asList("Du guckst in dein Abenteuer Handbuch für Dummies. \nDabei findest du folgendes raus:")),
 	WrongCmd(Arrays.asList("Öhm was auch immer du machen wolltest.....du hast es gerade vergessen!", "Wie war das nochmal ... das eine oder das andere Loch?", "tiefer ... tiefer .... TIEFER ... sag mal versteht das Programm kein DEUTSCH?????", "Ein Wort mit X war wohl nix.")),
-	WALL_OF_SHAME(Arrays.asList("In Erinnerung an:", "Die waren auch schon dabei: ", "Komische Inschriften"));
-
+	WALL_OF_SHAME(Arrays.asList("In Erinnerung an:", "Die waren auch schon dabei: ", "Komische Inschriften")),
+	Test(IOSystem.readTextPattern("test.txt"));
+	
+	
 	private List<String> texts;
 	private List<String> textsSave;
 	private Random randomGenerator;
