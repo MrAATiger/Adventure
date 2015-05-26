@@ -7,16 +7,13 @@ public class Enemy {
 	
 	
 	
-	public final int ENEMY_HEALTH = 100;
-	public final int ENEMY_ATTACK = 20;
-	public final int ENEMY_DEFENCE = 20;
-	public final int DROP_CHANCE = 20;
 	
-	public final int Drache  = 5;
-	public final int Kobold  = 30;
-	public final int Magier  = 10;
-	public final int Skelett = 40;
-	public final int Zombie = 70;
+	
+	public final static int DRACHE  = 5;
+	public final static int KOBOLD  = 30;
+	public final static int MAGIER  = 10;
+	public final static int SKELETT = 40;
+	public final static int ZOMBIE = 70;
 	
 	Random rand = new Random ();
 	
@@ -28,30 +25,30 @@ public Enemy () {
 	public void enemyAuswahl () {
 		int enemyAuswahl = rand.nextInt(100);
 		
-		if  (enemyAuswahl <= Drache) {
+		if  (enemyAuswahl <= DRACHE) {
 			
 			Drache dragon = new Drache ();
 			dragon.drachenAuswahl();
 			
 		}
 		
-		else if (enemyAuswahl <= Kobold) {
+		else if (enemyAuswahl <= KOBOLD) {
 			Kobold kobold = new Kobold ();
 			kobold.koboldAuswahl();
 		}
 		
-		else if (enemyAuswahl <= Magier) {
+		else if (enemyAuswahl <= MAGIER) {
 			Magier mage = new Magier ();
 			mage.magierAuswahl();
 		}
 		
-		else if (enemyAuswahl <= Skelett) {
+		else if (enemyAuswahl <= SKELETT) {
 			Skelett skelett = new Skelett ();
 			skelett.skelettAuswahl();
 			
 		}
 		
-		else if (enemyAuswahl <= Zombie) {
+		else if (enemyAuswahl <= ZOMBIE) {
 			Zombie zombie = new Zombie ();
 			zombie.zombieAuswahl();
 		}

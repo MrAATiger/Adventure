@@ -8,7 +8,8 @@ public class Drache extends Enemy {
 
 	// verschiedene Drachen => Eis-, Feuer-, Zombie-, Blitz-, Eisen- und Süßigkeitendrache
 	
-	public final int AVOID_CHANCE = 5;
+	public final static int AVOID_CHANCE_DRAGON = 5;
+	public final static int DRAGON_LIFE = 150;
 	
 	public final int  Feuerdrache = 80;
 	public final int  Eisdrache = 40;
