@@ -105,7 +105,7 @@ public class IOSystem {
 
 		text += convertPlayerToLine(player);
 
-		writeSaveFile(text);
+		writeSaveFile(saveFile, text);
 
 	}
 
