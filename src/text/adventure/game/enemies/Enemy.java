@@ -61,7 +61,7 @@ public Enemy () {
 	
 	
 	
-	// neuer Package => für neue Gegnertypen? Es gibt z.B. Goblins, aber verschieden Versionen...
+	
 	
 		
 	
