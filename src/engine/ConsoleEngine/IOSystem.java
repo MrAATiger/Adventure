@@ -14,8 +14,8 @@ import text.adventure.game.Player;
 
 public class IOSystem {
 
-	private static final String PATH_SAVEFILES = "src/resources/text/de/";
-	private static final String PATH_TEXTPATTERN = "src/resources/savefiles/";
+	private static final String PATH_TEXTPATTERN = "src/resources/text/de/";
+	private static final String PATH_SAVEFILES = "src/resources/savefiles/";
 
 	private static File saveFile = new File(PATH_SAVEFILES + "wall_of_shame.txt");
 
@@ -39,7 +39,7 @@ public class IOSystem {
 
 			br.close();
 		} catch (FileNotFoundException e) {
-			writeSaveFile("");
+			writeSaveFile(new File(PATH_TEXTPATTERN + fileName) ,"");
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -70,7 +70,7 @@ public class IOSystem {
 
 			br.close();
 		} catch (FileNotFoundException e) {
-			writeSaveFile("");
+			writeSaveFile(saveFile, "");
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -79,11 +79,11 @@ public class IOSystem {
 		return players;
 	}
 
-	public static void writeSaveFile(String text) {
+	public static void writeSaveFile(File file, String text) {
 
 		FileWriter fw;
 		try {
-			fw = new FileWriter(saveFile);
+			fw = new FileWriter(file);
 
 			BufferedWriter bw = new BufferedWriter(fw);
 
