@@ -6,9 +6,6 @@ import text.adventure.game.angriffstyp.*;
 public class Enemy {
 	
 	
-	
-	
-	
 	public final static int DRACHE  = 5;
 	public final static int KOBOLD  = 30;
 	public final static int MAGIER  = 10;
