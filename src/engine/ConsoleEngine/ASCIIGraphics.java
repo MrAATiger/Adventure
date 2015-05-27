@@ -1,5 +1,11 @@
 package engine.ConsoleEngine;
 
+/**
+ * Diese Klasse enstpricht einer ASCII Grafik
+ * 
+ * @author Ludwig
+ *
+ */
 public enum ASCIIGraphics {
 
 	HorizontalSword("\n"

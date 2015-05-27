@@ -12,6 +12,12 @@ import java.util.List;
 
 import text.adventure.game.Player;
 
+/**
+ * Diese Klasse kümmert sich um lesen und schreiben von Dateien
+ * 
+ * @author Ludwig
+ *
+ */
 public class IOSystem {
 
 

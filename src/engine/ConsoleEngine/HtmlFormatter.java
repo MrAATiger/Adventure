@@ -1,5 +1,11 @@
 package engine.ConsoleEngine;
 
+/**
+ * Diese Klasse formatiert String in HTML
+ * 
+ * @author Ludwig
+ *
+ */
 public class HtmlFormatter {
 
 	private static final String newLine = "<br>";

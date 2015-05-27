@@ -12,12 +12,24 @@ import engine.ConsoleEngine.ConsoleEngine;
 import engine.ConsoleEngine.IOSystem;
 import engine.ConsoleEngine.TextPatter;
 
+/**
+ * 
+ * Diese Klasse implementiert die Logik des Spieles
+ * 
+ * @author Alexander Angeloussis, Ludwig Biermann
+ *
+ */
 public class GameLogic implements InputListener {
+	
+	// Variabeln
 	private Player player;
 	private Engine engine;
 	private boolean sleep = false;
 	private List<String> actions;
 
+	// Mögliche Actionen
+	
+	// TODO Action als enum + synonyme einfügen
 	public static final String KEYWORD_DEEPER = "deeper";
 	public static final String KEYWORD_INVENTORY = "inventory";
 	public static final String KEYWORD_HELP = "help";
@@ -30,7 +42,10 @@ public class GameLogic implements InputListener {
 	// in der Variabel werde die Textnachrichten gespeichert
 	private String action;
 
-	public void begin() {
+	/**
+	 * Diese Methode startet das Spiel
+	 */
+	public void start() {
 		
 		
 		Collections.sort(KEY_LIST);
@@ -46,37 +61,47 @@ public class GameLogic implements InputListener {
 
 		// Ausgabe der WilkommmensNachricht
 		engine.printlnWelcomeMessage("Willkommen zum Text-Adventure \n" + TITLE + "\n\n");
+		
+		// verlange nach Name
 		engine.askForStringInput("Bevor wir Beginnen, nenne mir deinen heroische Namen... für die Wall of Shame und so.");
-	
 		this.sleeping();
 
 		player = new Player(action);
 
+		
+		// Wilkommens Nachricht
 		engine.printStrong("\nWillkommen Player:");
 		engine.printEpic(" " + player + "\n");
 		engine.printStrong("Steuerung:\n");
 		engine.print("Gib ein bestimmtes <strong>Schüsselwort</strong> in das Feld unter dem Textfeld ein, um eine bestimmte Aktion zu tätigen.\n Du kannst jederzeit <strong>help</strong> eingeben um alle möglichen Befehle zu sehen.\n\n");
 
-		
+		// verlange nach Eingabe
 		engine.askForStringInput("\nWas willst du tun?\n");
-		engine.print(actions);
+		engine.print(actions);		
+		this.sleeping();
 		
+		// säubere die Seite
+		engine.clear();
 		
+		// los gehts
+		this.performAction();
+	}
+
+	/**
+	 * Diese Mehtode fragt nach der nächsten Eingabe
+	 */
+	private void askForNextActions() {
+
+		engine.askForStringInput("\nWas willst du tun?\n");
 		this.sleeping();
 		engine.clear();
 		
 		this.performAction();
 	}
 
-	private void showActions() {
-
-		engine.askForStringInput("\nWas willst du tun?\n");
-		this.sleeping();
-		engine.clear();
-		
-		this.performAction();
-	}
-
+	/**
+	 * Die Actionen werden ausgeführt
+	 */
 	private void performAction() {
 
 		engine.println("");
@@ -89,13 +114,13 @@ public class GameLogic implements InputListener {
 			engine.printASCIIGraphics(ASCIIGraphics.Dragon);
 			
 			sleeping(3000);
-			this.showActions();
+			this.askForNextActions();
 			break;
 
 		case KEYWORD_INVENTORY:
 			engine.println(TextPatter.Inventory.getRandomText());
 			sleeping(1000);
-			this.showActions();
+			this.askForNextActions();
 			break;
 
 		case KEYWORD_LEAVE:
@@ -118,25 +143,29 @@ public class GameLogic implements InputListener {
 			engine.println(TextPatter.Help.getRandomText());
 			engine.print(KEY_LIST);
 			sleeping(1000);
-			this.showActions();
+			this.askForNextActions();
 			break;
 
 		case KEYWORD_WALL_OF_SHAME:
 			engine.println(TextPatter.WALL_OF_SHAME.getRandomText());
 			engine.printPlayerList(IOSystem.readWallOfShame());
-			this.showActions();
+			this.askForNextActions();
 			break;
 			
 		default:
 			engine.println(TextPatter.WrongCmd.getRandomText());
 			sleeping(1000);
-			this.showActions();
+			this.askForNextActions();
 			break;
 		}
 
 	}
 
-	private void sleeping(int ms) {
+	/**
+	 * Das Programm wartet eine bestimmte zeit
+	 * @param ms Millisekunden die gewartet werden sollen
+	 */
+	private void sleeping(long ms) {
 		try {
 			Thread.sleep(ms);
 		} catch (InterruptedException e) {
@@ -145,10 +174,13 @@ public class GameLogic implements InputListener {
 
 	}
 
+	/**
+	 * wartet 100 ms
+	 */
 	private void sleeping() {
 		sleep = true;
 		while (sleep) {
-			sleeping(100);
+			sleeping(100L);
 		}
 	}
 

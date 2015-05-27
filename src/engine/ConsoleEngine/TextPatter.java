@@ -6,6 +6,12 @@ import java.util.List;
 import java.util.Random;
 import engine.ConsoleEngine.IOSystem;
 
+/**
+ * This enum implemnts the random TextPattern
+ * 
+ * @author Ludwig
+ *
+ */
 public enum TextPatter {
 
 /*	

@@ -8,7 +8,7 @@ public class Start {
 		
 		
 	GameLogic start = new GameLogic ();
-	start.begin();
+	start.start();
 
 	
 

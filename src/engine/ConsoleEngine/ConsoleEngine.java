@@ -21,6 +21,12 @@ import text.adventure.game.Player;
 import engine.Engine;
 import engine.InputListener;
 
+/**
+ * Eine Engine die Text in einer modifizierten Konsole ausgibt
+ * 
+ * @author Ludwig
+ *
+ */
 public class ConsoleEngine implements Engine {
 
 	
