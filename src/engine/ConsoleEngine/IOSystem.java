@@ -14,6 +14,14 @@ import text.adventure.game.Player;
 
 public class IOSystem {
 
+
+	public static final String DEEPER_PATH = "deeper_patter.txt";
+	public static final String INVENTORY_PATH = "inventory_patter.txt";
+	public static final String LEAVE_PATH = "leave_patter.txt";
+	public static final String HELP_PATH = "help_patter.txt";
+	public static final String WRONG_CMD_PATH = "wrong_cmd_patter.txt";
+	public static final String WALL_OF_SHAME_PATH = "wall_of_shame_patter.txt";
+	
 	private static final String PATH_TEXTPATTERN = "src/resources/text/de/";
 	private static final String PATH_SAVEFILES = "src/resources/savefiles/";
 

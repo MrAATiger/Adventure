@@ -32,7 +32,6 @@ public class GameLogic implements InputListener {
 
 	public void begin() {
 		
-		TextPatter.Test.getRandomText();
 		
 		Collections.sort(KEY_LIST);
 		

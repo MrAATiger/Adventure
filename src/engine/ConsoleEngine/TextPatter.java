@@ -8,16 +8,24 @@ import engine.ConsoleEngine.IOSystem;
 
 public enum TextPatter {
 
+/*	
 	GoDeeper(Arrays.asList("Du wagst dich tiefer in den Dungeon! (epische aber leicht gruselige Musik)", "Und noch tiefer.", "Irgendwie gruselig.", "Da steht ein Skelett ... und spielt Violine.", "Warum wirds eigentlich dunkel wenn man tiefer geht.")),
 	Inventory(Arrays.asList("Na mal sehen was hast du in deiner Hosentasche ....",  "Dein Inventar!", "Dein Inventar!", "Dein Inventar!", "Dein Inventar!", "Dein Inventar!", "Dein Inventar!", "Dein Inventar!", "Dein Inventar!", "Dein Inventar!", "Dein Inventar!")),
 	Leave(Arrays.asList("Plötzlich öffnet sich über dir eine Falltür und eine schwarze Masse fließt herunter (SFX: flatsch)."
 					+ "\n Vor lauter schreck gackernd fällst du in das Daunen Kissen neben dir... das du bis jetzt völlig übersehen hast."
-					+ "\nVor lauter scham rennst du fast hüpfend und mit dem Armen wedelnd aus den Dungeon ..." + "\n\nENDE ", "Du hörst ein Click ... und du warst tot und nie wieder gesehen.", "bye bye", "Damn Glitch ... du fällst ins Bodenlose!")),
+					+ "\n Vor lauter scham rennst du fast hüpfend und mit dem Armen wedelnd aus den Dungeon ..." + "\n\nENDE ", "Du hörst ein Click ... und du warst tot und nie wieder gesehen.", "bye bye", "Damn Glitch ... du fällst ins Bodenlose!")),
 	Help(Arrays.asList("Du guckst in dein Abenteuer Handbuch für Dummies. \nDabei findest du folgendes raus:")),
 	WrongCmd(Arrays.asList("Öhm was auch immer du machen wolltest.....du hast es gerade vergessen!", "Wie war das nochmal ... das eine oder das andere Loch?", "tiefer ... tiefer .... TIEFER ... sag mal versteht das Programm kein DEUTSCH?????", "Ein Wort mit X war wohl nix.")),
 	WALL_OF_SHAME(Arrays.asList("In Erinnerung an:", "Die waren auch schon dabei: ", "Komische Inschriften")),
-	Test(IOSystem.readTextPattern("test.txt"));
-	
+*/
+
+
+	GoDeeper(IOSystem.readTextPattern(IOSystem.DEEPER_PATH)),
+	Inventory(IOSystem.readTextPattern(IOSystem.INVENTORY_PATH)),
+	Leave(IOSystem.readTextPattern(IOSystem.LEAVE_PATH)),
+	Help(IOSystem.readTextPattern(IOSystem.HELP_PATH)),
+	WrongCmd(IOSystem.readTextPattern(IOSystem.WRONG_CMD_PATH)),
+	WALL_OF_SHAME(IOSystem.readTextPattern(IOSystem.WALL_OF_SHAME_PATH));
 	
 	private List<String> texts;
 	private List<String> textsSave;
