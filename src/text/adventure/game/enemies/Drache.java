@@ -15,11 +15,11 @@ public class Drache extends Enemy {
 	public final static int AVOID_CHANCE_DRAGON = 5;
 
 	public final static int FEUERDRACHE = 50;
-	public final static int Eisdrache = 40 ;
-	public final static int Zombiedrache =30  ;
-	public final static int Blitzdrache = 20  ;
-	public final static int Eisendrache = 5 ;
-	public final static int Süßigkeitendrache = 0 ;
+	public final static int EISDRACHE = 40 ;
+	public final static int ZOMBIEDRACHE =30  ;
+	public final static int BLITZDRACHE = 20  ;
+	public final static int EISENDRACHE = 5 ;
+	public final static int SÜßIGKEITENDRACHE = 0 ;
 
 	Enemy enemy = new Enemy();
 
@@ -35,19 +35,19 @@ public class Drache extends Enemy {
 			fDrache.textAusgabeFeuerdrache();
 			
 		
-		} else if (drachenWahrscheinlichkeit >= Eisdrache && drachenWahrscheinlichkeit < FEUERDRACHE ) {
+		} else if (drachenWahrscheinlichkeit >= EISDRACHE && drachenWahrscheinlichkeit < FEUERDRACHE ) {
 
 		}
 		
-		  else if (drachenWahrscheinlichkeit >= Zombiedrache && drachenWahrscheinlichkeit < Eisdrache ) {
+		  else if (drachenWahrscheinlichkeit >= ZOMBIEDRACHE && drachenWahrscheinlichkeit < EISDRACHE ) {
 			  
 		  }
 		
-		  else if (drachenWahrscheinlichkeit >= Blitzdrache && drachenWahrscheinlichkeit < Zombiedrache ) {
+		  else if (drachenWahrscheinlichkeit >= BLITZDRACHE && drachenWahrscheinlichkeit < ZOMBIEDRACHE ) {
 			  
 		  }
 		
-		  else if (drachenWahrscheinlichkeit <= Eisendrache && drachenWahrscheinlichkeit < Blitzdrache) {
+		  else if (drachenWahrscheinlichkeit >= EISENDRACHE && drachenWahrscheinlichkeit < BLITZDRACHE) {
 			  
 		  }
 		 
