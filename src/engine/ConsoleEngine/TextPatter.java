@@ -1,10 +1,8 @@
 package engine.ConsoleEngine;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import engine.ConsoleEngine.IOSystem;
 
 /**
  * This enum implemnts the random TextPattern

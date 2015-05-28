@@ -32,8 +32,8 @@ public class ConsoleEngine implements Engine {
 	
 	private static final int CONSOLE_WIDTH = 600;
 	private static final int CONSOLE_HEIGHT = 700;
-	private static final int INVENTORY_WIDTH = 200;
-	private static final int INVENTORY_HEIGHT = 200;
+//	private static final int INVENTORY_WIDTH = 200;
+//	private static final int INVENTORY_HEIGHT = 200;
 
 	private JFrame console;
 	private JTextPane textArea;

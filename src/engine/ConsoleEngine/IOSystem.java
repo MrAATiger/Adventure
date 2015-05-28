@@ -20,7 +20,7 @@ import text.adventure.game.Player;
  */
 public class IOSystem {
 
-	private static final String PATH_RESOURCES = "src/resources/";
+	private static final String PATH_RESOURCES = "resources/";
 	private static final String PATH_TEXTPATTERN = PATH_RESOURCES + "text/de/";
 	private static final String PATH_SAVEFILES = PATH_RESOURCES + "savefiles/";
 	private static final String PATH_ASCII_GRAPHICS = PATH_RESOURCES + "graphics/";
