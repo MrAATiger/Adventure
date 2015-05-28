@@ -20,24 +20,58 @@ import text.adventure.game.Player;
  */
 public class IOSystem {
 
-
-	public static final String DEEPER_PATH = "deeper_patter.txt";
-	public static final String INVENTORY_PATH = "inventory_patter.txt";
-	public static final String LEAVE_PATH = "leave_patter.txt";
-	public static final String HELP_PATH = "help_patter.txt";
-	public static final String WRONG_CMD_PATH = "wrong_cmd_patter.txt";
-	public static final String WALL_OF_SHAME_PATH = "wall_of_shame_patter.txt";
+	private static final String PATH_RESOURCES = "src/resources/";
+	private static final String PATH_TEXTPATTERN = PATH_RESOURCES + "text/de/";
+	private static final String PATH_SAVEFILES = PATH_RESOURCES + "savefiles/";
+	private static final String PATH_ASCII_GRAPHICS = PATH_RESOURCES + "graphics/";
 	
-	private static final String PATH_TEXTPATTERN = "src/resources/text/de/";
-	private static final String PATH_SAVEFILES = "src/resources/savefiles/";
 
-	private static File saveFile = new File(PATH_SAVEFILES + "wall_of_shame.txt");
+	public static final String WALL_OF_SHAME_PATH = PATH_TEXTPATTERN + "wall_of_shame_patter.txt";
+	
+	private static final String PATH_ACTION = PATH_TEXTPATTERN + "action/";
+	
+	public static final String DEEPER_PATH = PATH_ACTION + "deeper_patter.txt";
+	public static final String INVENTORY_PATH = PATH_ACTION + "inventory_patter.txt";
+	public static final String LEAVE_PATH = PATH_ACTION + "leave_patter.txt";
+	public static final String HELP_PATH = PATH_ACTION + "help_patter.txt";
+	public static final String WRONG_CMD_PATH = PATH_ACTION + "wrong_cmd_patter.txt";
 
+	public static final String SWORD1 = PATH_ASCII_GRAPHICS + "sword1.txt";
+	
+	public static String readASCIIGraphics(String fileName) {
+		String graphic = "\n";
+		FileReader fr;
+		try {
+			fr = new FileReader(PATH_ASCII_GRAPHICS + fileName);
+
+			BufferedReader br = new BufferedReader(fr);
+
+			String zeile = "";
+			while (zeile != null) {
+
+				zeile = br.readLine();
+
+				if (zeile != null) {
+					graphic += zeile + "\n";
+				}
+			}
+
+			br.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return graphic;
+
+	}
+	
 	public static List<String> readTextPattern(String fileName) {
 		List<String> pattern = new ArrayList<String>();
 		FileReader fr;
 		try {
-			fr = new FileReader(PATH_TEXTPATTERN + fileName);
+			fr = new FileReader(fileName);
 
 			BufferedReader br = new BufferedReader(fr);
 
@@ -53,7 +87,7 @@ public class IOSystem {
 
 			br.close();
 		} catch (FileNotFoundException e) {
-			writeSaveFile(new File(PATH_TEXTPATTERN + fileName) ,"");
+			writeSaveFile(new File(fileName), "");
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -68,7 +102,7 @@ public class IOSystem {
 		List<Player> players = new ArrayList<Player>();
 		FileReader fr;
 		try {
-			fr = new FileReader(saveFile);
+			fr = new FileReader(PATH_SAVEFILES + "wall_of_shame.txt");
 
 			BufferedReader br = new BufferedReader(fr);
 
@@ -84,7 +118,7 @@ public class IOSystem {
 
 			br.close();
 		} catch (FileNotFoundException e) {
-			writeSaveFile(saveFile, "");
+			writeSaveFile(new File(PATH_SAVEFILES + "wall_of_shame.txt"), "");
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -119,7 +153,7 @@ public class IOSystem {
 
 		text += convertPlayerToLine(player);
 
-		writeSaveFile(saveFile, text);
+		writeSaveFile(new File(PATH_SAVEFILES + "wall_of_shame.txt"), text);
 
 	}
 

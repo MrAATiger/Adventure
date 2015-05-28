@@ -48,12 +48,17 @@ public class GameLogic implements InputListener {
 	public void start() {
 		
 		
+		
 		Collections.sort(KEY_LIST);
 		
 		// initialisierung
 		engine = new ConsoleEngine(this, TITLE);
 		actions = new ArrayList<String>();
 
+		engine.printASCIIGraphics(ASCIIGraphics.HorizontalSword);
+		engine.printASCIIGraphics(ASCIIGraphics.Dragon);
+		engine.printASCIIGraphics(ASCIIGraphics.CommingSword);
+		
 		// addd Standard actions
 		actions.add("Tiefer in den Dungeon \n\t\t(" + KEYWORD_DEEPER + ")");
 		actions.add("Inventar aufrufen  \n\t\t(" + KEYWORD_INVENTORY + ")");
