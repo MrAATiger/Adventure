@@ -318,7 +318,7 @@ public class ConsoleEngine implements Engine {
 
 	@Override
 	public void printASCIIGraphics(ASCIIGraphics graphics) {
-		this.print(HtmlFormatter.convertASCIIToHtml(graphics.toString()));
+		this.print(HtmlFormatter.convertASCIIToHtml(graphics.toString(), graphics.getFontSize()));
 
 	}
 

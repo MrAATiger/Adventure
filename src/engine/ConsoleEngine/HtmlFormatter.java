@@ -53,11 +53,11 @@ public class HtmlFormatter {
 		return text;
 	}
 
-	public static String convertASCIIToHtml(String text) {
+	public static String convertASCIIToHtml(String text, int font_size) {
 
 		String html = text;
 
-		html = "<pre style=\"font-size:5px; font-style:normal; line-height:6px; font-family: \"Courier New\", Courier, mono;\">" + html + "</pre>";
+		html = "<pre style=\"font-size:" + font_size + "px; font-style:normal; line-height:6px; font-family: \"Courier New\", Courier, mono;\">" + html + "</pre>";
 
 		return html;
 	}

@@ -34,9 +34,11 @@ public class GameLogic implements InputListener {
 	public static final String KEYWORD_INVENTORY = "inventory";
 	public static final String KEYWORD_HELP = "help";
 	public static final String KEYWORD_LEAVE = "leave";
+	public static final String KEYWORD_GRAPHICS = "show all graphics";
 	public static final String KEYWORD_WALL_OF_SHAME = "wall of shame";
 	public static final String TITLE = "VerBlubbDichNicht";
 
+	
 	public static List<String> KEY_LIST = new ArrayList<String>(Arrays.asList("<strong>" + KEYWORD_DEEPER + " </strong> \n\t\ttiefer in den Dungeon","<strong>" +  KEYWORD_INVENTORY + " </strong>\n\t\tInventar anzeigen", "<strong>" +  KEYWORD_HELP + " </strong>\n\t\tHilfe anzeigen", "<strong>" +  KEYWORD_LEAVE + " </strong>\n\t\tSpiel verlassen", "<strong>" +  KEYWORD_WALL_OF_SHAME + " </strong>\n\t\tWall of Shame anzeigen!"));
 
 	// in der Variabel werde die Textnachrichten gespeichert
@@ -54,11 +56,7 @@ public class GameLogic implements InputListener {
 		// initialisierung
 		engine = new ConsoleEngine(this, TITLE);
 		actions = new ArrayList<String>();
-
-		engine.printASCIIGraphics(ASCIIGraphics.HorizontalSword);
-		engine.printASCIIGraphics(ASCIIGraphics.Dragon);
-		engine.printASCIIGraphics(ASCIIGraphics.CommingSword);
-		
+	
 		// addd Standard actions
 		actions.add("Tiefer in den Dungeon \n\t\t(" + KEYWORD_DEEPER + ")");
 		actions.add("Inventar aufrufen  \n\t\t(" + KEYWORD_INVENTORY + ")");
@@ -155,6 +153,15 @@ public class GameLogic implements InputListener {
 			engine.println(TextPatter.WALL_OF_SHAME.getRandomText());
 			engine.printPlayerList(IOSystem.readWallOfShame());
 			this.askForNextActions();
+			break;
+			
+		case KEYWORD_GRAPHICS:
+			
+			engine.printASCIIGraphics(ASCIIGraphics.CommingSword);
+			engine.printASCIIGraphics(ASCIIGraphics.HorizontalSword);
+			engine.printASCIIGraphics(ASCIIGraphics.Dragon);
+			engine.printASCIIGraphics(ASCIIGraphics.Head_Asia);
+			
 			break;
 			
 		default:
