@@ -1,0 +1,9 @@
+engine
+engine.ConsoleEngine
+text.adventure.game
+text.adventure.game.angriffstyp
+text.adventure.game.dungeon
+text.adventure.game.dungeon.room
+text.adventure.game.enemies
+text.adventure.game.enemies.drachen
+text.adventure.game.waffen
