@@ -20,7 +20,7 @@ import engine.ConsoleEngine.TextPatter;
  *
  */
 public class GameLogic implements InputListener {
-	
+
 	// Variabeln
 	private Player player;
 	private Engine engine;
@@ -48,8 +48,6 @@ public class GameLogic implements InputListener {
 	 * Diese Methode startet das Spiel
 	 */
 	public void start() {
-		
-		
 		
 		Collections.sort(KEY_LIST);
 		
@@ -109,8 +107,7 @@ public class GameLogic implements InputListener {
 
 		engine.println("");
 
-		switch (action) {
-		case KEYWORD_DEEPER:
+		if(Action.deeper.contains(action)) {
 			engine.println(TextPatter.GoDeeper.getRandomText());
 			
 			engine.print("OMG ein rießiger Drache erscheint im kleinen Dungeon! SFX: Drachengebrüll \n");
@@ -118,15 +115,11 @@ public class GameLogic implements InputListener {
 			
 			sleeping(3000);
 			this.askForNextActions();
-			break;
-
-		case KEYWORD_INVENTORY:
+		} else if(Action.inventory.contains(action)) {
 			engine.println(TextPatter.Inventory.getRandomText());
 			sleeping(1000);
 			this.askForNextActions();
-			break;
-
-		case KEYWORD_LEAVE:
+		} else if(Action.leave.contains(action)) {
 			engine.println(TextPatter.Leave.getRandomText());
 			IOSystem.appendPlayerToSaveFile(player);
 			engine.println("\n\nProgramm beendet sich in \n\n\t5");
@@ -140,35 +133,24 @@ public class GameLogic implements InputListener {
 			engine.println("\t1");
 			sleeping(1000);
 			System.exit(0);
-			break;
-
-		case KEYWORD_HELP:
+		} else if(Action.help.contains(action)) {
 			engine.println(TextPatter.Help.getRandomText());
 			engine.print(KEY_LIST);
 			sleeping(1000);
 			this.askForNextActions();
-			break;
-
-		case KEYWORD_WALL_OF_SHAME:
+		} else if(Action.wall_of_shame.contains(action)) {
 			engine.println(TextPatter.WALL_OF_SHAME.getRandomText());
 			engine.printPlayerList(IOSystem.readWallOfShame());
 			this.askForNextActions();
-			break;
-			
-		case KEYWORD_GRAPHICS:
-			
+		} else if(Action.graphics.contains(action)) {
 			engine.printASCIIGraphics(ASCIIGraphics.CommingSword);
 			engine.printASCIIGraphics(ASCIIGraphics.HorizontalSword);
 			engine.printASCIIGraphics(ASCIIGraphics.Dragon);
 			engine.printASCIIGraphics(ASCIIGraphics.Head_Asia);
-			
-			break;
-			
-		default:
+		} else {
 			engine.println(TextPatter.WrongCmd.getRandomText());
 			sleeping(1000);
 			this.askForNextActions();
-			break;
 		}
 
 	}

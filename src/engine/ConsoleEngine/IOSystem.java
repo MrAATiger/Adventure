@@ -26,17 +26,22 @@ public class IOSystem {
 	private static final String PATH_ASCII_GRAPHICS = PATH_RESOURCES + "graphics/";
 	
 
-	public static final String WALL_OF_SHAME_PATH = PATH_TEXTPATTERN + "wall_of_shame_patter.txt";
+	public static final String WALL_OF_SHAME_SAVEFILE_PATH = PATH_TEXTPATTERN + "wall_of_shame_patter.txt";
 	
 	private static final String PATH_ACTION = PATH_TEXTPATTERN + "action/";
 	
-	public static final String DEEPER_PATH = PATH_ACTION + "deeper_patter.txt";
-	public static final String INVENTORY_PATH = PATH_ACTION + "inventory_patter.txt";
-	public static final String LEAVE_PATH = PATH_ACTION + "leave_patter.txt";
-	public static final String HELP_PATH = PATH_ACTION + "help_patter.txt";
-	public static final String WRONG_CMD_PATH = PATH_ACTION + "wrong_cmd_patter.txt";
+	public static final String DEEPER_PATTERN_PATH = PATH_ACTION + "deeper_patter.txt";
+	public static final String INVENTORY_PATTERN_PATH = PATH_ACTION + "inventory_patter.txt";
+	public static final String LEAVE_PATTERN_PATH = PATH_ACTION + "leave_patter.txt";
+	public static final String HELP_PATTERN_PATH = PATH_ACTION + "help_patter.txt";
+	public static final String WRONG_CMD_PATTERN_PATH = PATH_ACTION + "wrong_cmd_patter.txt";
 
-	public static final String SWORD1 = PATH_ASCII_GRAPHICS + "sword1.txt";
+	public static final String DEEPER_PATH = PATH_ACTION + "deeper.txt";
+	public static final String INVENTORY_PATH = PATH_ACTION + "inventory.txt";
+	public static final String LEAVE_PATH = PATH_ACTION + "leave.txt";
+	public static final String HELP_PATH = PATH_ACTION + "help.txt";	
+	public static final String GRAPHICS_PATH = PATH_ACTION + "graphics.txt";
+	public static final String WALL_OF_SHAME_PATH = PATH_ACTION + "wall_of_shame.txt";	
 	
 	public static String readASCIIGraphics(String fileName) {
 		String graphic = "\n";
@@ -67,11 +72,11 @@ public class IOSystem {
 
 	}
 	
-	public static List<String> readTextPattern(String fileName) {
+	public static List<String> readFileLineByLine(String path) {
 		List<String> pattern = new ArrayList<String>();
 		FileReader fr;
 		try {
-			fr = new FileReader(fileName);
+			fr = new FileReader(path);
 
 			BufferedReader br = new BufferedReader(fr);
 
@@ -87,7 +92,7 @@ public class IOSystem {
 
 			br.close();
 		} catch (FileNotFoundException e) {
-			writeSaveFile(new File(fileName), "");
+			writeSaveFile(new File(path), "");
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();

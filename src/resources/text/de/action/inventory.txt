@@ -1,0 +1,3 @@
+show inventory
+inventory
+look in my inventory

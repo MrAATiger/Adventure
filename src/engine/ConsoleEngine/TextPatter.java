@@ -26,12 +26,12 @@ public enum TextPatter {
 */
 
 
-	GoDeeper(IOSystem.readTextPattern(IOSystem.DEEPER_PATH)),
-	Inventory(IOSystem.readTextPattern(IOSystem.INVENTORY_PATH)),
-	Leave(IOSystem.readTextPattern(IOSystem.LEAVE_PATH)),
-	Help(IOSystem.readTextPattern(IOSystem.HELP_PATH)),
-	WrongCmd(IOSystem.readTextPattern(IOSystem.WRONG_CMD_PATH)),
-	WALL_OF_SHAME(IOSystem.readTextPattern(IOSystem.WALL_OF_SHAME_PATH));
+	GoDeeper(IOSystem.readFileLineByLine(IOSystem.DEEPER_PATTERN_PATH)),
+	Inventory(IOSystem.readFileLineByLine(IOSystem.INVENTORY_PATTERN_PATH)),
+	Leave(IOSystem.readFileLineByLine(IOSystem.LEAVE_PATTERN_PATH)),
+	Help(IOSystem.readFileLineByLine(IOSystem.HELP_PATTERN_PATH)),
+	WrongCmd(IOSystem.readFileLineByLine(IOSystem.WRONG_CMD_PATTERN_PATH)),
+	WALL_OF_SHAME(IOSystem.readFileLineByLine(IOSystem.WALL_OF_SHAME_SAVEFILE_PATH));
 	
 	private List<String> texts;
 	private List<String> textsSave;

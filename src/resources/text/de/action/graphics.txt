@@ -1,0 +1,4 @@
+graphics
+show all graphics
+more ascii
+more ascii pls
