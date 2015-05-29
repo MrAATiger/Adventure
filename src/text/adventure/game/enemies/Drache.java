@@ -31,8 +31,8 @@ public class Drache extends Enemy {
 		// von 50 - 100 soll ein feuerdrache kommen
 		
 		if (drachenWahrscheinlichkeit >= FEUERDRACHE) {
-			Feuerdrache fDrache = new Feuerdrache();
-			fDrache.textAusgabeFeuerdrache();
+			
+			
 			
 		
 		} else if (drachenWahrscheinlichkeit >= EISDRACHE && drachenWahrscheinlichkeit < FEUERDRACHE ) {
