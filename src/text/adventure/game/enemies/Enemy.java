@@ -14,28 +14,42 @@ public class Enemy {
 	private int skelettHealthPoints = 30;
 	private int zombieHealthPoints = 30;
 	
-	public Enemy (int koboldHealthPoints, int drachenHealthPoints, int magieHealthPoints, int skelettHealthPoints, int zombieHealthPoints ) {
+	
+	public void setKoboldHealthPoints (int koboldHealthPoints) {
 		this.koboldHealthPoints = koboldHealthPoints;
-		this.drachenHealthPoints = drachenHealthPoints;
-		this.magierHealthPoints = magieHealthPoints;
-		this.skelettHealthPoints = skelettHealthPoints;
-		this.zombieHealthPoints = zombieHealthPoints;
 	}
+	
 	
 	public int getKoboldHealthPoints () {
 		return koboldHealthPoints;
+	}
+	
+	public void setDrachenHealthPoints (int drachenHealthPoints) {
+		this.drachenHealthPoints = drachenHealthPoints;
 	}
 	
 	public int getDrachenHealthPoints () {
 		return drachenHealthPoints;
 	}
 	
+	public void setMagieHealthPoints (int magierHealthPoints ) {
+		this.magierHealthPoints = magierHealthPoints;
+	}
+	
 	public int getMagieHealthPoints (){
 		return magierHealthPoints;
 	}
 	
+	public void setSkelettHealthPoints ( int skelettHealthPoints) {
+		this.skelettHealthPoints = skelettHealthPoints;
+	}
+	
 	public int getSkelettHealthPoints (){
 		return skelettHealthPoints;
+	}
+	
+	public void setZombieHealthPoints (int zombieHealthPoints) {
+		this.zombieHealthPoints = zombieHealthPoints;
 	}
 	
 	public int getZombieHealthPoints() {

@@ -10,6 +10,7 @@ public class Feuerdrache extends Drache {
 	
 	private String Angriff1 = "Der Drache spuckt Feuer";
 	private String Angriff2 = "Er beiﬂt zu";
+	private String Ansage1 = "Ein m‰chtiger Feuerdrache erscheint vor dir";
 	Random rand = new Random ();
 	private int attack;
 	
@@ -22,8 +23,12 @@ public class Feuerdrache extends Drache {
 	
 	
 	
-	public void textAusgabeFeuerdrache () {
-		System.out.println(" Ein m‰chtiger Feuerdrache erschein vor dir");
+	public void setAnsage1 (String Ansage1) {
+		this.Ansage1 = Ansage1;
+	}
+	
+	public String getAnsage1 () {
+		return Ansage1;
 	}
 	
 	public void setAngriff1 (String Angriff1) {
