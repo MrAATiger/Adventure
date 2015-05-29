@@ -1,10 +1,14 @@
 package text.adventure.game.enemies;
 
 import text.adventure.game.enemies.drachen.*;
+import text.adventure.game.enemies.*;
 
 import java.util.Random;
 
 public class Drache extends Enemy {
+	
+	Enemy enemy = new Enemy();
+	Random rand = new Random();
 
 	// verschiedene Drachen => Eis-, Feuer-, Zombie-, Blitz-, Eisen- und
 	// Süßigkeitendrache
@@ -21,9 +25,7 @@ public class Drache extends Enemy {
 	public final static int EISENDRACHE = 5 ;
 	public final static int SÜßIGKEITENDRACHE = 0 ;
 
-	Enemy enemy = new Enemy();
-
-	Random rand = new Random();
+	
 
 	public void drachenAuswahl() {
 
