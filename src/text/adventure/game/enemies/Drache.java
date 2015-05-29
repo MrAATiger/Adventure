@@ -30,6 +30,8 @@ public class Drache extends Enemy {
 		int drachenWahrscheinlichkeit = rand.nextInt(100);
 		// von 50 - 100 soll ein feuerdrache kommen
 		
+		
+		
 		if (drachenWahrscheinlichkeit >= FEUERDRACHE) {
 			
 			
