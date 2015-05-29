@@ -19,7 +19,7 @@ public class Feuerdrache extends Drache {
 	
 	public final static int FIRE_DRAGON_ATTACK = 60; // ein Random wird daraus gebildet
 	public final static int FIRE_DRAGON_DEFENCE = 20; // Random
-	public final static int DROP_CHANCE = 50;    // 50% 
+	public final static int DROP_CHANCE_FIREDRAGON = 20;    // 50% 
 	
 	
 	
