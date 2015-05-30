@@ -14,52 +14,15 @@ public class Enemy {
 	wie erhalte ich zugriff auf diese variablen? 
 	*/
 	
-	private int koboldHealthPoints = 40;
-	private int drachenHealthPoints = 80;
-	private int magierHealthPoints = 50;
-	private int skelettHealthPoints = 30;
-	private int zombieHealthPoints = 30;
+	private int healthPoints;
 	
 	
-	public void setKoboldHealthPoints (int koboldHealthPoints) {
-		this.koboldHealthPoints = koboldHealthPoints;
+	public void setHealthPoints (int healthPoints) {
+		this.healthPoints = healthPoints;
 	}
 	
-	
-	public int getKoboldHealthPoints () {
-		return koboldHealthPoints;
-	}
-	
-	public void setDrachenHealthPoints (int drachenHealthPoints) {
-		this.drachenHealthPoints = drachenHealthPoints;
-	}
-	
-	public int getDrachenHealthPoints () {
-		return drachenHealthPoints;
-	}
-	
-	public void setMagieHealthPoints (int magierHealthPoints ) {
-		this.magierHealthPoints = magierHealthPoints;
-	}
-	
-	public int getMagieHealthPoints (){
-		return magierHealthPoints;
-	}
-	
-	public void setSkelettHealthPoints ( int skelettHealthPoints) {
-		this.skelettHealthPoints = skelettHealthPoints;
-	}
-	
-	public int getSkelettHealthPoints (){
-		return skelettHealthPoints;
-	}
-	
-	public void setZombieHealthPoints (int zombieHealthPoints) {
-		this.zombieHealthPoints = zombieHealthPoints;
-	}
-	
-	public int getZombieHealthPoints() {
-		return zombieHealthPoints;
+	public int getHealthPoints (){
+		return healthPoints;
 	}
 	
 	// muss ich nochmals gut überarbeiten, da so nicht korrekt...

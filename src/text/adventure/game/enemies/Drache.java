@@ -1,19 +1,21 @@
 package text.adventure.game.enemies;
 
 import text.adventure.game.enemies.drachen.*;
-import text.adventure.game.enemies.*;
-
 import java.util.Random;
-
+import text.adventure.game.enemies.*;
 public class Drache extends Enemy {
 	
+	private static final int HEALTH_POINTS_DRAGONS = 0;
 	Enemy enemy = new Enemy();
 	Random rand = new Random();
 
 	// verschiedene Drachen => Eis-, Feuer-, Zombie-, Blitz-, Eisen- und
 	// Süßigkeitendrache
 	
-	
+	public Drache () {
+		super ();
+		this.setHealthPoints(HEALTH_POINTS_DRAGONS);
+	}
 	
 
 	public final static int AVOID_CHANCE_DRAGON = 5;
@@ -24,7 +26,7 @@ public class Drache extends Enemy {
 	public final static int BLITZDRACHE = 20  ;
 	public final static int EISENDRACHE = 5 ;
 	public final static int SÜßIGKEITENDRACHE = 0 ;
-
+	
 	
 
 	public void drachenAuswahl() {
