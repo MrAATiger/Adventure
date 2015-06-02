@@ -1,13 +1,17 @@
 package text.adventure.game.enemies;
 
+import text.adventure.game.angriffstyp.*;
 import text.adventure.game.enemies.drachen.*;
 import java.util.Random;
 import text.adventure.game.enemies.*;
+
+
 public class Drache extends Enemy {
 	
 	private static final int HEALTH_POINTS_DRAGONS = 0;
 	Enemy enemy = new Enemy();
 	Random rand = new Random();
+	Feuer feuer = new Feuer ();
 
 	// verschiedene Drachen => Eis-, Feuer-, Zombie-, Blitz-, Eisen- und
 	// Süßigkeitendrache
@@ -15,6 +19,7 @@ public class Drache extends Enemy {
 	public Drache () {
 		super ();
 		this.setHealthPoints(HEALTH_POINTS_DRAGONS);
+		
 	}
 	
 

@@ -14,7 +14,7 @@ public class Feuerdrache extends Drache {
 	Random rand = new Random ();
 	private int attack;
 	
-	Feuer feuer = new Feuer ();
+	
 	
 	
 	public final static int FIRE_DRAGON_ATTACK = 60; // ein Random wird daraus gebildet
