@@ -11,10 +11,9 @@ public class Drache extends Enemy {
 	private static final int HEALTH_POINTS_DRAGONS = 0;
 	Enemy enemy = new Enemy();
 	Random rand = new Random();
-	Feuer feuer = new Feuer ();
+	
 
-	// verschiedene Drachen => Eis-, Feuer-, Zombie-, Blitz-, Eisen- und
-	// Süßigkeitendrache
+	
 	
 	public Drache () {
 		super ();

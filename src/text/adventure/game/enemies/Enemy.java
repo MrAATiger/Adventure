@@ -4,16 +4,7 @@ import java.util.Random;
 import text.adventure.game.angriffstyp.*;
 
 public class Enemy {
-	
-	// sollen diese auch random ausgegeben werden? unterschiede bei den einzelnen unterspezien?
-	// Konstruktor verursacht probleme. Obejekt wird am besten ohne Konstruktor erstellt bzw. ohne übergabe der Variablen
-	
-	
-	
-	/*
-	wie erhalte ich zugriff auf diese variablen? 
-	*/
-	
+
 	private int healthPoints;
 	
 	

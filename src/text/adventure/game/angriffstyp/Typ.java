@@ -2,7 +2,7 @@ package text.adventure.game.angriffstyp;
 
 public class Typ {
 	
-	public static final int SEHR_EFFEKTIV = 100;  // zusätzlich zum normalen Schaden, soll ein Bonusschaden von 100% des Angriffes entstehen => zu viel? 
+	public static final int SEHR_EFFEKTIV = 100;  
 	
 	// sobald ein Angriff sehr effektiv ist, wird ein zusätzlicher Schade berechnet
 
@@ -24,4 +24,17 @@ public class Typ {
 	 * 
 	 * 
 	 */
+	
+	public String feuer;
+	public String blatt;
+	public String boden;
+	public String donner;
+	public String gestein;
+	public String heilig;
+	public String unheilig;
+	public String wasser;
+	
+	
+	}
+	
 }
