@@ -2,10 +2,10 @@ package text.adventure.game.dungeon.room;
 
 import text.adventure.game.dungeon.Room;
 
-public class MonsterRoom extends Room {
+public class TrapRoom extends Room {
 
-	public MonsterRoom(){
+	public TrapRoom(){
 		super();
-		this.setTitle("Monster Room");
+		this.setTitle("Trap Room");
 	}
 }

@@ -4,4 +4,9 @@ import text.adventure.game.dungeon.Room;
 
 public class WelcomeRoom extends Room {
 
+	public WelcomeRoom(){
+		super();
+		this.setTitle("Welcome Room");
+	}
+	
 }

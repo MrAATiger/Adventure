@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import text.adventure.game.dungeon.Map;
+import text.adventure.game.dungeon.Map.Difficult;
 import engine.Engine;
 import engine.InputListener;
 import engine.ConsoleEngine.ASCIIGraphics;
@@ -43,6 +45,7 @@ public class GameLogic implements InputListener {
 
 	// in der Variabel werde die Textnachrichten gespeichert
 	private String action;
+	private Map map;
 
 	/**
 	 * Diese Methode startet das Spiel
@@ -62,19 +65,28 @@ public class GameLogic implements InputListener {
 
 		// Ausgabe der WilkommmensNachricht
 		engine.printlnWelcomeMessage("Willkommen zum Text-Adventure \n" + TITLE + "\n\n");
+
+		engine.printStrong("Steuerung:\n");
+		engine.print("Gib ein bestimmtes <strong>Schüsselwort</strong> in das Feld unter dem Textfeld ein, um eine bestimmte Aktion zu tätigen.\n Du kannst jederzeit <strong>help</strong> eingeben um alle möglichen Befehle zu sehen.\n\n");
 		
 		// verlange nach Name
 		engine.askForStringInput("Bevor wir Beginnen, nenne mir deinen heroische Namen... für die Wall of Shame und so.");
 		this.sleeping();
 
 		player = new Player(action);
-
+		
+		// verlange nach Schwirigkeitsgrad
+		engine.askForStringInput("Und nun wollen wir wissen was für ein Typ Sie sind:");
+		engine.askForStringInput("\t Eine Pussy?");
+		engine.askForStringInput("\t Ein Langweiler?");
+		engine.askForStringInput("\t Ein Koreaner");
+		
+		Difficult diff = this.askDifficult();
+		map = new Map(diff);	
 		
 		// Wilkommens Nachricht
 		engine.printStrong("\nWillkommen Player:");
 		engine.printEpic(" " + player + "\n");
-		engine.printStrong("Steuerung:\n");
-		engine.print("Gib ein bestimmtes <strong>Schüsselwort</strong> in das Feld unter dem Textfeld ein, um eine bestimmte Aktion zu tätigen.\n Du kannst jederzeit <strong>help</strong> eingeben um alle möglichen Befehle zu sehen.\n\n");
 
 		// verlange nach Eingabe
 		engine.askForStringInput("\nWas willst du tun?\n");
@@ -87,6 +99,26 @@ public class GameLogic implements InputListener {
 		// los gehts
 		this.performAction();
 	}
+	
+	private Difficult askDifficult(){
+
+		this.sleeping();
+
+		if(action.equals("Pussy") || action.equals("pussy")){
+			return Difficult.Easy;
+		} else if(action.equals("Langweiler") || action.equals("langweiler")) {
+			return Difficult.Easy;
+			
+		} else if(action.equals("Koreaner") || action.equals("koreaner")) {
+			return Difficult.Easy;
+		} else {
+			
+			engine.askForStringInput("Bitte gib entweder Pussy, Langweiler oder Koreaner ein!");
+			return askDifficult();
+		}
+		
+	}
+	
 
 	/**
 	 * Diese Mehtode fragt nach der nächsten Eingabe
