@@ -7,6 +7,7 @@ import java.util.List;
 
 import text.adventure.game.dungeon.Map;
 import text.adventure.game.dungeon.Map.Difficult;
+import text.adventure.game.dungeon.Map.MapSize;
 import engine.Engine;
 import engine.InputListener;
 import engine.ConsoleEngine.ASCIIGraphics;
@@ -76,13 +77,23 @@ public class GameLogic implements InputListener {
 		player = new Player(action);
 		
 		// verlange nach Schwirigkeitsgrad
-		engine.askForStringInput("Und nun wollen wir wissen was für ein Typ Sie sind:");
-		engine.askForStringInput("\t Eine Pussy?");
-		engine.askForStringInput("\t Ein Langweiler?");
-		engine.askForStringInput("\t Ein Koreaner");
+		engine.println("Und nun wollen wir wissen was für ein Typ Sie sind:");
+		engine.println("\t Eine Pussy?");
+		engine.println("\t Ein Langweiler?");
 		
+		engine.askForStringInput("\t Ein Koreaner");
 		Difficult diff = this.askDifficult();
-		map = new Map(diff);	
+		
+		// Verlange nach Map Größe
+		engine.println("Wir groß soll der Dungeon sein?:");
+		engine.println("\t Small?");
+		engine.println("\t Normal?");
+		
+		engine.askForStringInput("\t oder Big?");
+		MapSize size = this.askDungeonSize();
+		map = new Map(diff, size);	
+		
+		engine.clear();
 		
 		// Wilkommens Nachricht
 		engine.printStrong("\nWillkommen Player:");
@@ -119,6 +130,25 @@ public class GameLogic implements InputListener {
 		
 	}
 	
+	private MapSize askDungeonSize(){
+
+		this.sleeping();
+
+		if(action.equals("Small") || action.equals("small")){
+			return MapSize.Small;
+		} else if(action.equals("Normal") || action.equals("normal")) {
+			return MapSize.Normal;
+			
+		} else if(action.equals("Big") || action.equals("big")) {
+			return MapSize.Big;
+		} else {
+			
+			engine.askForStringInput("Bitte gib entweder Big, Normal oder Small ein!");
+			return askDungeonSize();
+		}
+		
+	}
+	
 
 	/**
 	 * Diese Mehtode fragt nach der nächsten Eingabe
@@ -141,16 +171,11 @@ public class GameLogic implements InputListener {
 
 		if(Action.deeper.contains(action)) {
 			engine.println(TextPatter.GoDeeper.getRandomText());
+
+			engine.println(map.getNextRoom());
 			
-			engine.print("OMG ein rießiger Drache erscheint im kleinen Dungeon! SFX: Drachengebrüll \n");
-			engine.printASCIIGraphics(ASCIIGraphics.Dragon);
-			
-			sleeping(3000);
-			this.askForNextActions();
 		} else if(Action.inventory.contains(action)) {
 			engine.println(TextPatter.Inventory.getRandomText());
-			sleeping(1000);
-			this.askForNextActions();
 		} else if(Action.leave.contains(action)) {
 			engine.println(TextPatter.Leave.getRandomText());
 			IOSystem.appendPlayerToSaveFile(player);
@@ -168,12 +193,9 @@ public class GameLogic implements InputListener {
 		} else if(Action.help.contains(action)) {
 			engine.println(TextPatter.Help.getRandomText());
 			engine.print(KEY_LIST);
-			sleeping(1000);
-			this.askForNextActions();
 		} else if(Action.wall_of_shame.contains(action)) {
 			engine.println(TextPatter.WALL_OF_SHAME.getRandomText());
 			engine.printPlayerList(IOSystem.readWallOfShame());
-			this.askForNextActions();
 		} else if(Action.graphics.contains(action)) {
 			engine.printASCIIGraphics(ASCIIGraphics.CommingSword);
 			engine.printASCIIGraphics(ASCIIGraphics.HorizontalSword);
@@ -181,9 +203,11 @@ public class GameLogic implements InputListener {
 			engine.printASCIIGraphics(ASCIIGraphics.Head_Asia);
 		} else {
 			engine.println(TextPatter.WrongCmd.getRandomText());
-			sleeping(1000);
-			this.askForNextActions();
 		}
+		
+		
+		sleeping(100L);
+		this.askForNextActions();
 
 	}
 

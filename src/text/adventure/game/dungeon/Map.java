@@ -1,5 +1,6 @@
 package text.adventure.game.dungeon;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -39,12 +40,14 @@ public class Map {
 	}
 	
 	
-	public Map(MapSize size, Difficult difficult){
+	public Map(Difficult difficult, MapSize size){
 		
 		this.difficult = difficult;
 		
 		// build rooms
 		int z = size.size;
+		
+		rooms = new ArrayList<Room>();
 		
 		rooms.add(new WelcomeRoom());
 		
@@ -69,7 +72,7 @@ public class Map {
 		
 		position++;
 		
-		if(position == rooms.size()){
+		if(position >= rooms.size()){
 			return new FinalRoom();
 		}
 		
