@@ -30,11 +30,15 @@ public class Player {
 		this.score = 0;		
 	}
 	
-	private Equipment getEquipment(){
+	public List<Item> getInventory(){
+		return inventory;
+	}
+	
+	public Equipment getEquipment(){
 		return equip;
 	}
 	
-	private Status getState(){
+	public Status getState(){
 		return status;
 	}
 	
