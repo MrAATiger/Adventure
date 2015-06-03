@@ -1,6 +1,6 @@
-package text.adventure.game.enemies.drachen;
+package text.adventure.game.creatures.enemies.drachen;
 
-import text.adventure.game.enemies.Drache;
+import text.adventure.game.creatures.enemies.Drache;
 
 public class Süßigkeitendrache extends Drache {
 	

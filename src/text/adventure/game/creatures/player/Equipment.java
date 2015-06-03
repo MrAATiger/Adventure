@@ -1,6 +1,6 @@
 package text.adventure.game.creatures.player;
 
-import text.adventure.game.waffen.Waffen;
+import text.adventure.game.items.waffen.Waffen;
 
 public class Equipment {
 

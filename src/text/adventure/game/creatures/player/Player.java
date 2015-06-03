@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Random;
 
 import text.adventure.game.creatures.Status;
-import text.adventure.game.item.Item;
-import text.adventure.game.state.State;
+import text.adventure.game.items.Item;
+import text.adventure.game.logic.State;
 
 public class Player {
 

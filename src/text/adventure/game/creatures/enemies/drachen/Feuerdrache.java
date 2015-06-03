@@ -1,8 +1,8 @@
-package text.adventure.game.enemies.drachen;
+package text.adventure.game.creatures.enemies.drachen;
 
-import text.adventure.game.enemies.Drache;
-import text.adventure.game.angriffstyp.*;
 import java.util.Random;
+
+import text.adventure.game.creatures.enemies.Drache;
 
 
 

@@ -3,6 +3,7 @@ package text.adventure.game.logic;
 import java.util.ArrayList;
 import java.util.List;
 
+import text.adventure.game.creatures.enemies.Enemy;
 import text.adventure.game.creatures.player.Player;
 import text.adventure.game.dungeon.Event;
 import text.adventure.game.dungeon.Map;
@@ -11,8 +12,7 @@ import text.adventure.game.dungeon.Map.MapSize;
 import text.adventure.game.dungeon.event.LootEvent;
 import text.adventure.game.dungeon.event.MonsterEvent;
 import text.adventure.game.dungeon.event.StatusEvent;
-import text.adventure.game.enemies.Enemy;
-import text.adventure.game.item.Item;
+import text.adventure.game.items.Item;
 import engine.Engine;
 import engine.InputListener;
 import engine.ConsoleEngine.ASCIIGraphics;

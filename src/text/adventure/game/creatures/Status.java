@@ -1,6 +1,6 @@
 package text.adventure.game.creatures;
 
-import text.adventure.game.state.State;
+import text.adventure.game.logic.State;
 
 public class Status {
 

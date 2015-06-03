@@ -1,9 +1,6 @@
-package text.adventure.game.enemies;
+package text.adventure.game.creatures.enemies;
 
-import text.adventure.game.angriffstyp.*;
-import text.adventure.game.enemies.drachen.*;
 import java.util.Random;
-import text.adventure.game.enemies.*;
 
 
 public class Drache extends Enemy {

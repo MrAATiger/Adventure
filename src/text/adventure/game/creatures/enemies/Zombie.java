@@ -1,4 +1,4 @@
-package text.adventure.game.enemies;
+package text.adventure.game.creatures.enemies;
 
 public class Zombie extends Enemy {
 

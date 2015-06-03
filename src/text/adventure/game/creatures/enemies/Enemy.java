@@ -1,7 +1,6 @@
-package text.adventure.game.enemies;
+package text.adventure.game.creatures.enemies;
 
 import java.util.Random;
-import text.adventure.game.angriffstyp.*;
 
 public class Enemy {
 

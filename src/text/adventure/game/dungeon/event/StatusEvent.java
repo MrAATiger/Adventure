@@ -1,7 +1,7 @@
 package text.adventure.game.dungeon.event;
 
 import text.adventure.game.dungeon.Event;
-import text.adventure.game.state.State;
+import text.adventure.game.logic.State;
 
 public class StatusEvent implements Event {
 

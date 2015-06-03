@@ -6,7 +6,8 @@ import java.util.List;
 import text.adventure.game.dungeon.Event;
 import text.adventure.game.dungeon.Room;
 import text.adventure.game.dungeon.event.LootEvent;
-import text.adventure.game.item.Item;
+import text.adventure.game.items.Item;
+import text.adventure.game.items.waffen.Axt;
 
 public class WelcomeRoom extends Room {
 
@@ -20,7 +21,7 @@ public class WelcomeRoom extends Room {
 		
 		
 		List<Item> items = new ArrayList<Item>();
-		items.add(new Item());
+		items.add(new Axt());
 		
 		
 		list.add(new LootEvent(items));
