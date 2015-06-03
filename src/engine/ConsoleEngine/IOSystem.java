@@ -35,13 +35,15 @@ public class IOSystem {
 	public static final String LEAVE_PATTERN_PATH = PATH_ACTION + "leave_patter.txt";
 	public static final String HELP_PATTERN_PATH = PATH_ACTION + "help_patter.txt";
 	public static final String WRONG_CMD_PATTERN_PATH = PATH_ACTION + "wrong_cmd_patter.txt";
+	public static final String INSPECT_PATTERN_PATH = PATH_ACTION + "inspect_patter.txt";	
 
 	public static final String DEEPER_PATH = PATH_ACTION + "deeper.txt";
 	public static final String INVENTORY_PATH = PATH_ACTION + "inventory.txt";
 	public static final String LEAVE_PATH = PATH_ACTION + "leave.txt";
 	public static final String HELP_PATH = PATH_ACTION + "help.txt";	
 	public static final String GRAPHICS_PATH = PATH_ACTION + "graphics.txt";
-	public static final String WALL_OF_SHAME_PATH = PATH_ACTION + "wall_of_shame.txt";	
+	public static final String WALL_OF_SHAME_PATH = PATH_ACTION + "wall_of_shame.txt";
+	public static final String INSPECT = PATH_ACTION + "inspect.txt";
 	
 	public static String readASCIIGraphics(String fileName) {
 		String graphic = "\n";

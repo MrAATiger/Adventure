@@ -29,7 +29,8 @@ public enum TextPatter {
 	Leave(IOSystem.readFileLineByLine(IOSystem.LEAVE_PATTERN_PATH)),
 	Help(IOSystem.readFileLineByLine(IOSystem.HELP_PATTERN_PATH)),
 	WrongCmd(IOSystem.readFileLineByLine(IOSystem.WRONG_CMD_PATTERN_PATH)),
-	WALL_OF_SHAME(IOSystem.readFileLineByLine(IOSystem.WALL_OF_SHAME_SAVEFILE_PATH));
+	WALL_OF_SHAME(IOSystem.readFileLineByLine(IOSystem.WALL_OF_SHAME_SAVEFILE_PATH)), 
+	Inspect(IOSystem.readFileLineByLine(IOSystem.INSPECT_PATTERN_PATH));
 	
 	private List<String> texts;
 	private List<String> textsSave;

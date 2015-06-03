@@ -15,9 +15,10 @@ public class Map {
 	
 	
 	private List<Room> rooms;
-	private Difficult difficult;
 	private Random r;
 	private int position;
+	
+	public static Difficult difficult;
 	
 	public enum MapSize{
 		Big(20), Normal(15), Small(10);
@@ -42,7 +43,7 @@ public class Map {
 	
 	public Map(Difficult difficult, MapSize size){
 		
-		this.difficult = difficult;
+		Map.difficult = difficult;
 		
 		// build rooms
 		int z = size.size;
@@ -61,8 +62,17 @@ public class Map {
 	}
 
 	public Map(Difficult difficult) {
-		// TODO Auto-generated constructor stub
+		this(difficult, MapSize.Normal);
 	}
+	
+	public Map(MapSize size) {
+		this(Difficult.Normal, size);
+	}
+	
+	public Map() {
+		this(Difficult.Normal, MapSize.Normal);
+	}
+	
 
 	public Room getCurrentRoom(){
 		return rooms.get(position);
