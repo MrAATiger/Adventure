@@ -20,7 +20,8 @@ public class Typ {
 	 * Schwächen in den einzelnen Klassen? 
 	 * Ja. Erst Typproblem lösen bevor enemy weiter bearbeitet wird
 	 *
-	 * 
+	 * Schau dir mal Java Enum an.  Oder du kannst ja ne methode machen die folgendes macht:
+	 * public int isEffective(Typ typ) return 1 wenn es ein effictiver Angriff war; return -1 wenn es gar nicht effictive war.
 	 * 
 	 * 
 	 */
@@ -35,6 +36,6 @@ public class Typ {
 	public String wasser;
 	
 	
-	}
+	
 	
 }
