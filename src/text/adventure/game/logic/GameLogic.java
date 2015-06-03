@@ -1,8 +1,9 @@
-package text.adventure.game;
+package text.adventure.game.logic;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import text.adventure.game.creatures.player.Player;
 import text.adventure.game.dungeon.Event;
 import text.adventure.game.dungeon.Map;
 import text.adventure.game.dungeon.Map.Difficult;

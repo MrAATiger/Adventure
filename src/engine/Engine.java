@@ -3,7 +3,7 @@ package engine;
 import java.util.List;
 
 import engine.ConsoleEngine.ASCIIGraphics;
-import text.adventure.game.Player;
+import text.adventure.game.creatures.player.Player;
 
 /**
  * 

@@ -1,4 +1,4 @@
-package text.adventure.game;
+package text.adventure.game.creatures.player;
 
 import java.util.Random;
 import java.util.RandomAccess;

@@ -17,7 +17,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
-import text.adventure.game.Player;
+import text.adventure.game.creatures.player.Player;
 import engine.Engine;
 import engine.InputListener;
 

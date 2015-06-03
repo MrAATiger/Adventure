@@ -1,4 +1,4 @@
-package text.adventure.game;
+package text.adventure.game.logic;
 
 import java.util.ArrayList;
 import java.util.Collections;

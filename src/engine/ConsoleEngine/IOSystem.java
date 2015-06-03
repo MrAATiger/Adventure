@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import text.adventure.game.Player;
+import text.adventure.game.creatures.player.Player;
 
 /**
  * Diese Klasse kümmert sich um lesen und schreiben von Dateien

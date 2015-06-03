@@ -1,5 +1,7 @@
 package text.adventure.game;
 
+import text.adventure.game.logic.GameLogic;
+
 public class Start {
 	
 	
