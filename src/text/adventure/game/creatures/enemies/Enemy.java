@@ -2,6 +2,8 @@ package text.adventure.game.creatures.enemies;
 
 import java.util.Random;
 
+import text.adventure.game.logic.Typ;
+
 public class Enemy {
 
 	private int healthPoints;
@@ -34,7 +36,7 @@ public Enemy () {
 		
 		if  (enemyAuswahl <= DRACHE) {
 			
-			Drache dragon = new Drache ();
+			Drache dragon = new Drache (Typ.Feuer);
 			dragon.drachenAuswahl();
 			
 		}
