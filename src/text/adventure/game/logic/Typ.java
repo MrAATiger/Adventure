@@ -1,6 +1,11 @@
 package text.adventure.game.logic;
 
-public class Typ {
+import java.util.List;
+
+public enum Typ {
+	
+	Feuer, Blatt, Boden, Blitz, Wasser;
+	
 	
 	public static final int SEHR_EFFEKTIV = 100;  
 	
@@ -24,18 +29,22 @@ public class Typ {
 	 * public int isEffective(Typ typ) return 1 wenn es ein effictiver Angriff war; return -1 wenn es gar nicht effictive war.
 	 * 
 	 * 
+	
+	 * 
+	 * @param typeAngriff
+	 * @param typDefender
+	 * @return
+	 *
+	public int isEffevtive(Typ typeAngriff, Typ typDefender){
+		
+		typeAngriff ist gleichstark wie typDefender
+		return 0;
+		typeAngriff ist stärker als typDefender
+		return 1;
+		typeAngriff ist schwächer als typDefender
+		return -1;
+		
+	}
 	 */
-	
-	public String feuer;
-	public String blatt;
-	public String boden;
-	public String donner;
-	public String gestein;
-	public String heilig;
-	public String unheilig;
-	public String wasser;
-	
-	
-	
 	
 }

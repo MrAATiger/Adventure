@@ -3,11 +3,16 @@ package text.adventure.game.creatures.enemies.drachen;
 import java.util.Random;
 
 import text.adventure.game.creatures.enemies.Drache;
+import text.adventure.game.logic.Typ;
 
 
 
 public class Feuerdrache extends Drache {
 	
+	public Feuerdrache() {
+		super(Typ.Feuer);
+	}
+
 	private String Angriff1 = "Der Drache spuckt Feuer";
 	private String Angriff2 = "Er beiﬂt zu";
 	private String Ansage1 = "Ein m‰chtiger Feuerdrache erscheint vor dir";

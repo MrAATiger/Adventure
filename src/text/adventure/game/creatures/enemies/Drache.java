@@ -2,6 +2,8 @@ package text.adventure.game.creatures.enemies;
 
 import java.util.Random;
 
+import text.adventure.game.logic.Typ;
+
 
 public class Drache extends Enemy {
 	
@@ -9,13 +11,15 @@ public class Drache extends Enemy {
 	Enemy enemy = new Enemy();
 	Random rand = new Random();
 	
+	private Typ typ;
 
 	
 	
-	public Drache () {
+	public Drache (Typ typ) {
 		super ();
 		this.setHealthPoints(HEALTH_POINTS_DRAGONS);
 		
+		this.typ = typ;
 	}
 	
 
