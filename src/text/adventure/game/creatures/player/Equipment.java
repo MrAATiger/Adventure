@@ -1,7 +1,7 @@
 package text.adventure.game.creatures.player;
 
-import text.adventure.game.items.armor.Armor;
-import text.adventure.game.items.armor.Armor.ArmorTyp;
+import text.adventure.game.items.Armor;
+import text.adventure.game.items.Armor.ArmorTyp;
 import text.adventure.game.items.waffen.Waffen;
 import text.adventure.game.logic.Typ;
 
@@ -20,7 +20,7 @@ public class Equipment {
 	private Armor hand;
 	private Armor legs;
 	private Armor body;
-	private Armor shoes;
+	private Armor shoe;
 
 	private int waffenstaerkeWorkaraund;
 
@@ -31,7 +31,7 @@ public class Equipment {
 		hand = defaultHand;
 		legs = defaultLegs;
 		body = defaultBody;
-		shoes = defaultShoes;
+		shoe = defaultShoes;
 
 	}
 
@@ -103,13 +103,13 @@ public class Equipment {
 	}
 
 	public Armor getShoes() {
-		return shoes;
+		return shoe;
 	}
 
 	public void setShoes(Armor shoes) {
-		this.shoes = shoes;
-		if(this.shoes == null){
-			this.shoes = defaultShoes;
+		this.shoe = shoes;
+		if(this.shoe == null){
+			this.shoe = defaultShoes;
 		}
 	}
 

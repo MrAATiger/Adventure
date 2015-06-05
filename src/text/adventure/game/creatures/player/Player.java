@@ -12,13 +12,14 @@ public class Player {
 	private static final int START_MAX_PLAYER_DEFENCE = 20;
 	private static final int START_MAX_PLAYER_ATTACK = 50;
 	private static final int START_MAX_PLAYER_HEALTH = 50;
+	private static final int START_MAX_PLAYER_WEIGHT = 100;
 
 	private int score;
 
 	private String name;
 	private Status status;
 	
-	private List<Item> inventory;
+	private Inventar inventory;
 	private Equipment equip;
 
 	Random rand = new Random();
@@ -27,10 +28,11 @@ public class Player {
 		this.name = name;
 		this.status = new Status(START_MAX_PLAYER_HEALTH, START_MAX_PLAYER_DEFENCE,  new State());
 		this.equip = new Equipment(START_MAX_PLAYER_ATTACK);
+		this.inventory = new Inventar(START_MAX_PLAYER_WEIGHT);
 		this.score = 0;		
 	}
 	
-	public List<Item> getInventory(){
+	public Inventar getInventory(){
 		return inventory;
 	}
 	

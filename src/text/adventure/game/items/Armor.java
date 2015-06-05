@@ -1,6 +1,5 @@
-package text.adventure.game.items.armor;
+package text.adventure.game.items;
 
-import text.adventure.game.items.Item;
 import text.adventure.game.logic.Typ;
 
 public class Armor implements Item {
