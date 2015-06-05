@@ -4,7 +4,7 @@ import java.util.List;
 
 public enum Typ {
 	
-	Feuer, Blatt, Boden, Blitz, Wasser;
+	Feuer, Wasser, Wind, Erde, Normal, Blitz;
 	
 	
 	public static final int SEHR_EFFEKTIV = 100;  
