@@ -9,6 +9,21 @@ public enum Typ {
 	
 	public static final int SEHR_EFFEKTIV = 100;  
 	
+	public int istEffektiv (Typ typAngriff, Typ typVerteidigung1, Typ typVerteidigung2, Typ typVerteidigung3, Typ typVerteidigung4, Typ typVerteidigung5 ) {
+		//typeAngriff ist gleichstark wie typDefender
+		typAngriff = Typ.Feuer;
+		typVerteidigung1 = Typ.Wasser;
+		typVerteidigung2 = Typ.Wind;
+		typVerteidigung3 = Typ.Erde;
+		typVerteidigung4 = Typ.Normal;
+		typVerteidigung5 = Typ.Blitz;
+		return 0;
+		//typeAngriff ist stärker als typDefender
+		return 1;
+		//typeAngriff ist schwächer als typDefender
+		return -1;
+	}
+	
 	/*
 	 *
 	 * Schau dir mal Java Enum an.  Oder du kannst ja ne methode machen die folgendes macht:
