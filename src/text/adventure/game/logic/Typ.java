@@ -55,8 +55,81 @@ public int wasserIstEffektiv (Typ typAngriff, Typ typVerteidigung1, Typ typVerte
 	else 
 	return -1;
 	}
-}
+
+public int windIstEffektiv (Typ typAngriff, Typ typVerteidigung1, Typ typVerteidigung2, Typ typVerteidigung3, Typ typVerteidigung4, Typ typVerteidigung5, Typ typVerteidigung6 ) {
+	//typeAngriff ist gleichstark wie typDefender
+	typAngriff = Typ.Wind;
+	typVerteidigung1 = Typ.Feuer;
+	typVerteidigung2 = Typ.Wasser;
+	typVerteidigung3 = Typ.Erde;
+	typVerteidigung4 = Typ.Normal;
+	typVerteidigung5 = Typ.Blitz;
+	typVerteidigung6 = Typ.Pflanze;
 	
+	if (typAngriff == typVerteidigung1 || typAngriff == typVerteidigung2 || typAngriff == typVerteidigung4 || typAngriff == typVerteidigung5) {
+	return 0;
+	}
+	
+	else if (typAngriff == typVerteidigung6) {
+	//typeAngriff ist stärker als typDefender
+	return 1;
+	}
+	//typeAngriff ist schwächer als typDefender
+	else 
+	return -1;
+	}
+
+
+// hat mehr schwächen, aber auch mehr stärken
+
+
+public int erdeIstEffektiv (Typ typAngriff, Typ typVerteidigung1, Typ typVerteidigung2, Typ typVerteidigung3, Typ typVerteidigung4, Typ typVerteidigung5, Typ typVerteidigung6 ) {
+	//typeAngriff ist gleichstark wie typDefender
+	typAngriff = Typ.Erde;
+	typVerteidigung1 = Typ.Feuer;
+	typVerteidigung2 = Typ.Wind;
+	typVerteidigung3 = Typ.Wasser;
+	typVerteidigung4 = Typ.Normal;
+	typVerteidigung5 = Typ.Blitz;
+	typVerteidigung6 = Typ.Pflanze;
+	
+	if (typAngriff == typVerteidigung1 ||  typAngriff == typVerteidigung4 ) {
+	return 0;
+	}
+	
+	else if (typAngriff == typVerteidigung2 || typAngriff == typVerteidigung5) {
+	//typeAngriff ist stärker als typDefender
+	return 1;
+	}
+	//typeAngriff ist schwächer als typDefender
+	else 
+	return -1;
+	}
+
+public int normalIstEffektiv (Typ typAngriff, Typ typVerteidigung1, Typ typVerteidigung2, Typ typVerteidigung3, Typ typVerteidigung4, Typ typVerteidigung5, Typ typVerteidigung6 ) {
+	//typeAngriff ist gleichstark wie typDefender
+	typAngriff = Typ.Normal;
+	typVerteidigung1 = Typ.Feuer;
+	typVerteidigung2 = Typ.Wind;
+	typVerteidigung3 = Typ.Erde;
+	typVerteidigung4 = Typ.Wasser;
+	typVerteidigung5 = Typ.Blitz;
+	typVerteidigung6 = Typ.Pflanze;
+	
+	if (typAngriff == typVerteidigung1 || typAngriff == typVerteidigung2 || typAngriff == typVerteidigung3 || typAngriff == typVerteidigung4 ||
+		typAngriff == typVerteidigung5 || typAngriff == typVerteidigung6) {
+		return 0;
+	}
+	else 
+		return 1;
+	
+	
+	
+	
+	
+	
+}
+}
 	
 	
 
